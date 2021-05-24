@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menuFragments.leccionDescripcion">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/lecciones_btn"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+        <TextView
+            android:id="@+id/tvLecDescTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_dummy"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/txtquestion"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:lines="20"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:text="@string/dummy_text"
+                android:textSize="15sp" />
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</FrameLayout>

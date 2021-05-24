@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("info", "Botón presionado");
+        /*Log.i("info", "Botón presionado");
 
         checkedTextView = findViewById(R.id.conf_checked);
         botonCheck = findViewById(R.id.check);
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "MÁS SUERTE LA PRÓXIMA", Toast.LENGTH_LONG).show();
                 }
             }
-        });
+        });*/
 
     }
 }

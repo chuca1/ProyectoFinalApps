@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">tilde_alfa</string>
     <string name="resp" />
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lecciones_btn">Lecciones</string>
+    <string name="practicar_btn">Practicar</string>
+    <string name="minijuego_btn">minijuego</string>
+    <string name="dummy_text">Dummy\n\nText</string>
+    <string name="titulo_dummy">titulo</string>
+    <string name="practica_title_tv">Practica</string>
+    <string name="modo_contratiempo_btn">Modo Contratiempo</string>
+    <string name="modo_cl_sico_btn">Modo Clásico</string>
 </resources>
