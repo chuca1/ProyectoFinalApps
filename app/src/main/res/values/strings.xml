@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">tilde_alfa</string>
     <string name="resp" />
+
+    <string name="button_submit">Enviar</string>
+
+    <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
+    <string name="general_definiciones_1_agudas">Agudas</string>
+    <string name="general_definiciones_1_graves">Graves</string>
+    <string name="general_definiciones_1_esdrújulas_sobreesdrujulas">Esdrújulas y sobreesdrújulas</string>
 </resources>
