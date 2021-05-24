@@ -11,4 +11,11 @@
     <string name="practica_title_tv">Practica</string>
     <string name="modo_contratiempo_btn">Modo Contratiempo</string>
     <string name="modo_cl_sico_btn">Modo Clásico</string>
+
+    <string name="button_submit">Enviar</string>
+
+    <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
+    <string name="general_definiciones_1_agudas">Agudas</string>
+    <string name="general_definiciones_1_graves">Graves</string>
+    <string name="general_definiciones_1_esdrújulas_sobreesdrujulas">Esdrújulas y sobreesdrújulas</string>
 </resources>
