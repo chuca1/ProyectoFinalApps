@@ -1,5 +1,6 @@
 package com.powermango.myapplication.menuFragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.powermango.myapplication.ExercisesActivity;
+import com.powermango.myapplication.MainActivity;
+import com.powermango.myapplication.Principa;
 import com.powermango.myapplication.R;
 
 
@@ -38,8 +42,7 @@ public class menuEjercicios extends Fragment {
         modoContraT = view.findViewById(R.id.bContraTiempo);
 
         modoClas.setOnClickListener(viewl -> {
-            //Aquí pones al frag correcto
-            //navController.navigate(R.id.action_mainMenu_to_menuEjercicios);
+            startExercises();
         });
     }
 
@@ -48,5 +51,10 @@ public class menuEjercicios extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu_ejercicios_frag, container, false);
+    }
+
+    private void startExercises() {
+        Intent intent = new Intent(getContext(), ExercisesActivity.class);
+        startActivity(intent);
     }
 }
