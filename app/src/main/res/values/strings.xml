@@ -19,6 +19,18 @@
 
     <string name="button_submit">Enviar</string>
 
+    <string name="general_categorias_pregunta">Selecciona la categoría a la que pertenece cada palabra</string>
+    <string name="general_categorias_palabra_1">Árbol</string>
+    <string name="general_categorias_palabra_2">Computadora</string>
+    <string name="general_categorias_palabra_3">Ilógico</string>
+    <string name="general_categorias_palabra_4">Acción</string>
+    <string-array name="general_categorias_respuestas">
+        <item>Aguda</item>
+        <item>Grave</item>
+        <item>Esdrújula</item>
+        <item>Sobreesdrújula</item>
+    </string-array>
+
     <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
     <string name="general_definiciones_1_agudas">Agudas</string>
     <string name="general_definiciones_1_graves">Graves</string>

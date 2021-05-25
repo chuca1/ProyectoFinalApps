@@ -41,7 +41,10 @@
             app:destination="@id/generalDefiniciones1" />
         <action
             android:id="@+id/action_menuEjercicios_to_generalDefiniciones22"
-            app:destination="@id/generalDefiniciones22" />
+            app:destination="@id/generalDefiniciones2" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_generalCategorias"
+            app:destination="@id/generalCategorias" />
     </fragment>
     <fragment
         android:id="@+id/generalDefiniciones1"
@@ -49,8 +52,13 @@
         android:label="fragment_general_definiciones1"
         tools:layout="@layout/fragment_general_definiciones1" />
     <fragment
-        android:id="@+id/generalDefiniciones22"
+        android:id="@+id/generalDefiniciones2"
         android:name="com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2"
         android:label="fragment_general_definiciones2"
         tools:layout="@layout/fragment_general_definiciones2" />
+    <fragment
+        android:id="@+id/generalCategorias"
+        android:name="com.powermango.myapplication.exercisesFragments.GeneralCategorias"
+        android:label="fragment_general_categorias"
+        tools:layout="@layout/fragment_general_categorias" />
 </navigation>
