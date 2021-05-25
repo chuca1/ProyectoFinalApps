@@ -8,14 +8,16 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.powermango.myapplication.exercisesFragments.GeneralCategorias;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2;
+import static com.powermango.myapplication.Constants.*;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ExercisesActivity extends AppCompatActivity {
     ExercisesViewModel viewModel;
@@ -31,18 +33,24 @@ public class ExercisesActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         exercises = new ArrayList<>();
 
-        // TEST: los fragments se agregan manualmente
-        exercises.add(GeneralCategorias.newInstance("", ""));
-        exercises.add(GeneralDefiniciones1.newInstance("", ""));
-        exercises.add(GeneralDefiniciones2.newInstance("", ""));
-        exercises.add(GeneralCategorias.newInstance("", ""));
+        // Agrega número determinado de ejercicios al arreglo
+        for (int i = 0; i < EXERCISES_ARRAY_SIZE; i++) {
+            int randomInt = ThreadLocalRandom.current().nextInt(0, EXERCISES_AVAILABLE + 1);
+            //Log.i("info", "Número obtenido: " + Integer.toString(randomInt));
+            ExerciseType exerciseType = ExerciseType.valueOf(randomInt);
 
-        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //GeneralCategorias fragment = (GeneralCategorias) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
-
-        //if (fragment == null) {
-          //  fragmentTransaction.add(R.id.fragmentContainer, exercises.getFirst()).commit();
-        //}
+            switch (exerciseType) {
+                case GENERAL_CATEGORIAS:
+                    exercises.add(GeneralCategorias.newInstance("", ""));
+                    break;
+                case GENERAL_DEFINICIONES_1:
+                    exercises.add(GeneralDefiniciones1.newInstance("", ""));
+                    break;
+                case GENERAL_DEFINICIONES_2:
+                    exercises.add(GeneralDefiniciones2.newInstance("", ""));
+                    break;
+            }
+        }
 
         viewModel.getCurrentFragment().observe(this, new Observer<Integer>() {
             @Override
