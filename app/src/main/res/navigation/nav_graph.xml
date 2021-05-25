@@ -35,5 +35,22 @@
         android:id="@+id/menuEjercicios"
         android:name="com.powermango.myapplication.menuFragments.menuEjercicios"
         android:label="fragment_menu_ejercicios_frag"
-        tools:layout="@layout/fragment_menu_ejercicios_frag" />
+        tools:layout="@layout/fragment_menu_ejercicios_frag" >
+        <action
+            android:id="@+id/action_menuEjercicios_to_generalDefiniciones1"
+            app:destination="@id/generalDefiniciones1" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_generalDefiniciones22"
+            app:destination="@id/generalDefiniciones22" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalDefiniciones1"
+        android:name="com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1"
+        android:label="fragment_general_definiciones1"
+        tools:layout="@layout/fragment_general_definiciones1" />
+    <fragment
+        android:id="@+id/generalDefiniciones22"
+        android:name="com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2"
+        android:label="fragment_general_definiciones2"
+        tools:layout="@layout/fragment_general_definiciones2" />
 </navigation>

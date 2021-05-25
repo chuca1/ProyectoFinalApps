@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensions used in menus -->
+    <fraction name="button_lessons_main_vertical_offset">0.3</fraction>
+    <fraction name="button_lessons_vertical_offset">0.1</fraction>
+</resources>

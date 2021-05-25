@@ -12,6 +12,11 @@
     <string name="modo_contratiempo_btn">Modo Contratiempo</string>
     <string name="modo_cl_sico_btn">Modo Clásico</string>
 
+    <string name="button_regla_general">Regla general</string>
+    <string name="button_diptongo_hiato">Diptongo y hiato</string>
+    <string name="button_casos_especiales">Casos especiales</string>
+
+
     <string name="button_submit">Enviar</string>
 
     <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
