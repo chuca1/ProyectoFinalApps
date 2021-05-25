@@ -7,6 +7,7 @@
     <dimen name="button_submit_text_size">20sp</dimen>
 
     <fraction name="question_vertical_bias">0.25</fraction>
+    <fraction name="question_horizontal_bias">0</fraction>
     <fraction name="answer_radio_group_vertical_bias">0.05</fraction>
     <fraction name="answer_radio_group_horizontal_bias">0</fraction>
     <fraction name="button_submit_vertical_bias">0.2</fraction>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="@dimen/layout_margin"
     android:layout_marginRight="@dimen/layout_margin"
-    tools:context=".GeneralDefiniciones1">
+    tools:context=".GeneralDefiniciones2">
 
     <TextView
         android:id="@+id/textViewQuestion"
@@ -16,6 +16,7 @@
         android:textSize="@dimen/question_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="@fraction/question_horizontal_bias"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="@fraction/question_vertical_bias" />
