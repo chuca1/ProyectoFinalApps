@@ -2,12 +2,18 @@ package com.powermango.myapplication.exercisesFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 
 /**
@@ -25,6 +31,9 @@ public class GeneralDefiniciones2 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ExercisesViewModel viewModel;
+    Button submitButton;
 
     public GeneralDefiniciones2() {
         // Required empty public constructor
@@ -62,5 +71,22 @@ public class GeneralDefiniciones2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_general_definiciones2, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        submitButton = getView().findViewById(R.id.buttonSubmit);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
+                viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+                viewModel.nextFragment();
+            }
+        });
+
+        super.onViewCreated(view, savedInstanceState);
     }
 }

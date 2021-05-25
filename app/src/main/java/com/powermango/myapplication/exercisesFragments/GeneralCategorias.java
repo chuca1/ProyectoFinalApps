@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 
 /**
@@ -30,6 +33,7 @@ public class GeneralCategorias extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    ExercisesViewModel viewModel;
     Button submitButton;
 
     public GeneralCategorias() {
@@ -78,7 +82,9 @@ public class GeneralCategorias extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
+                viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+                viewModel.nextFragment();
             }
         });
 

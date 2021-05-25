@@ -8,19 +8,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.powermango.myapplication.exercisesFragments.GeneralCategorias;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ExercisesActivity extends AppCompatActivity {
     ExercisesViewModel viewModel;
     FragmentManager fragmentManager;
-    LinkedList<Fragment> exercises;
-    Fragment currentExercise;
-
+    ArrayList<Fragment> exercises;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +29,36 @@ public class ExercisesActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
         fragmentManager = getSupportFragmentManager();
-        exercises = new LinkedList<Fragment>();
+        exercises = new ArrayList<>();
 
         // TEST: los fragments se agregan manualmente
         exercises.add(GeneralCategorias.newInstance("", ""));
-        //exercises.add(GeneralDefiniciones1.newInstance("", ""));
-        //exercises.add(GeneralDefiniciones2.newInstance("", ""));
+        exercises.add(GeneralDefiniciones1.newInstance("", ""));
+        exercises.add(GeneralDefiniciones2.newInstance("", ""));
+        exercises.add(GeneralCategorias.newInstance("", ""));
 
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        GeneralCategorias fragment = (GeneralCategorias) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //GeneralCategorias fragment = (GeneralCategorias) getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
 
-        if (fragment == null) {
-            fragmentTransaction.add(R.id.fragmentContainer, exercises.getFirst()).commit();
-        }
+        //if (fragment == null) {
+          //  fragmentTransaction.add(R.id.fragmentContainer, exercises.getFirst()).commit();
+        //}
 
         viewModel.getCurrentFragment().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {
+                Integer currentFragment = viewModel.getCurrentFragment().getValue();
+                Toast.makeText(getApplicationContext(), "Se ha cambiado de fragment " + Integer.toString(currentFragment), Toast.LENGTH_SHORT).show();
 
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
+
+                if (fragment == null) {
+                    fragmentTransaction.add(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                }
+                else {
+                    fragmentTransaction.replace(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                }
             }
         });
     }
