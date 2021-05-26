@@ -52,7 +52,7 @@
             app:layout_constraintVertical_bias="0.221" />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
@@ -65,7 +65,7 @@
             app:layout_constraintVertical_bias="0.206" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/spinner3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"
@@ -94,7 +94,7 @@
             android:id="@+id/textViewQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/general_definiciones_1_pregunta"
+            android:text="@string/general_categorias_pregunta"
             android:textSize="@dimen/question_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +104,7 @@
             app:layout_constraintVertical_bias="@fraction/question_vertical_bias" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:drawable/btn_dropdown"

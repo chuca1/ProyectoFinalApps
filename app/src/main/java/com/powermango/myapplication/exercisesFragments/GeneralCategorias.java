@@ -5,13 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
@@ -34,6 +35,8 @@ public class GeneralCategorias extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+    Spinner spinner1, spinner2, spinner3, spinner4;
+
     Button submitButton;
 
     public GeneralCategorias() {
@@ -77,6 +80,16 @@ public class GeneralCategorias extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.general_categorias_respuestas, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1 = getView().findViewById(R.id.spinner1);
+        spinner1.setAdapter(adapter);
+        spinner2 = getView().findViewById(R.id.spinner3);
+        spinner2.setAdapter(adapter);
+        spinner3 = getView().findViewById(R.id.spinner2);
+        spinner3.setAdapter(adapter);
+        spinner4 = getView().findViewById(R.id.spinner4);
+        spinner4.setAdapter(adapter);
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
