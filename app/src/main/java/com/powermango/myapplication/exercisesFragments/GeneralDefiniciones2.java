@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
@@ -81,9 +82,14 @@ public class GeneralDefiniciones2 extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
-                viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
-                viewModel.nextFragment();
+                RadioGroup respuestas = getView().findViewById(R.id.radioGroupAnswer);
+                int radioButtonID = respuestas.getCheckedRadioButtonId();
+                if (radioButtonID == R.id.radioButtonGraves){
+                    viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+                    viewModel.nextFragment();
+                } else {
+                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
