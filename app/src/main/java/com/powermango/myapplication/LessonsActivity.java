@@ -20,16 +20,19 @@ public class LessonsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lessons);
 
-        int lessonType = getIntent().getExtras().getInt("lesson");
+        int lessonType = getIntent().getExtras().getInt("lessonType");
 
         switch (LessonType.valueOf(lessonType)) {
             case REGLA_GENERAL:
+                // Aquí se genera el fragment de regla general
                 Toast.makeText(getApplicationContext(), "Regla general", Toast.LENGTH_SHORT).show();
                 break;
             case DIPTONGO_HIATO:
+                // Aquí se genera el fragment de diptongo y hiato
                 Toast.makeText(getApplicationContext(), "Diptongo hiato", Toast.LENGTH_SHORT).show();
                 break;
             case CASOS_ESPECIALES:
+                // Aquí se genera el fragment de casos especiales
                 Toast.makeText(getApplicationContext(), "Casos especiales", Toast.LENGTH_SHORT).show();
                 break;
         }

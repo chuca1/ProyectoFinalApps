@@ -105,7 +105,7 @@ public class leccionesFrag extends Fragment {
 
     private void startLessonFragment(LessonType lessonType) {
         Intent intent = new Intent(getActivity(), LessonsActivity.class);
-        intent.putExtra("lesson", lessonType.getValue());
+        intent.putExtra("lessonType", lessonType.getValue());
         startActivity(intent);
     }
 }
