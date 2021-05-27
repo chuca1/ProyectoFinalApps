@@ -9,7 +9,7 @@
         android:id="@+id/mainMenu"
         android:name="com.powermango.myapplication.menuFragments.MainMenu"
         android:label="fragment_main_menu"
-        tools:layout="@layout/fragment_main_menu" >
+        tools:layout="@layout/fragment_main_menu">
         <action
             android:id="@+id/action_mainMenu_to_leccionesFrag"
             app:destination="@id/leccionesFrag" />
@@ -21,10 +21,10 @@
         android:id="@+id/leccionesFrag"
         android:name="com.powermango.myapplication.menuFragments.leccionesFrag"
         android:label="fragment_lecciones"
-        tools:layout="@layout/fragment_lecciones" >
+        tools:layout="@layout/fragment_lecciones">
         <action
-            android:id="@+id/action_leccionesFrag_to_leccionDescripcion"
-            app:destination="@id/leccionDescripcion" />
+            android:id="@+id/action_leccionesFrag_to_lessonsActivity"
+            app:destination="@id/lessonsActivity" />
     </fragment>
     <fragment
         android:id="@+id/leccionDescripcion"
@@ -35,7 +35,7 @@
         android:id="@+id/menuEjercicios"
         android:name="com.powermango.myapplication.menuFragments.menuEjercicios"
         android:label="fragment_menu_ejercicios_frag"
-        tools:layout="@layout/fragment_menu_ejercicios_frag" >
+        tools:layout="@layout/fragment_menu_ejercicios_frag">
         <action
             android:id="@+id/action_menuEjercicios_to_generalDefiniciones1"
             app:destination="@id/generalDefiniciones1" />
@@ -61,4 +61,54 @@
         android:name="com.powermango.myapplication.exercisesFragments.GeneralCategorias"
         android:label="fragment_general_categorias"
         tools:layout="@layout/fragment_general_categorias" />
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.powermango.myapplication.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.powermango.myapplication.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/lessonsActivity"
+        android:name="com.powermango.myapplication.LessonsActivity"
+        android:label="activity_lessons"
+        tools:layout="@layout/activity_lessons" >
+        <action
+            android:id="@+id/action_lessonsActivity_to_reglaGeneralFragment"
+            app:destination="@id/reglaGeneralFragment" />
+        <action
+            android:id="@+id/action_lessonsActivity_to_diptongoHiatoFragment"
+            app:destination="@id/diptongoHiatoFragment" />
+        <action
+            android:id="@+id/action_lessonsActivity_to_casosEspecialesFragment"
+            app:destination="@id/casosEspecialesFragment" />
+    </activity>
+    <fragment
+        android:id="@+id/reglaGeneralFragment"
+        android:name="com.powermango.myapplication.lessonsFragments.ReglaGeneralFragment"
+        android:label="fragment_regla_general"
+        tools:layout="@layout/fragment_regla_general" />
+    <fragment
+        android:id="@+id/diptongoHiatoFragment"
+        android:name="com.powermango.myapplication.lessonsFragments.DiptongoHiatoFragment"
+        android:label="fragment_diptongo_hiato"
+        tools:layout="@layout/fragment_diptongo_hiato" />
+    <fragment
+        android:id="@+id/casosEspecialesFragment"
+        android:name="com.powermango.myapplication.lessonsFragments.CasosEspecialesFragment"
+        android:label="fragment_casos_especiales"
+        tools:layout="@layout/fragment_casos_especiales" />
 </navigation>

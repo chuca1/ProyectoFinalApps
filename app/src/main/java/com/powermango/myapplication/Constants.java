@@ -30,4 +30,29 @@ public final class Constants {
           //  return value;
         //}
     };
+
+    public enum LessonType {
+        REGLA_GENERAL(1), DIPTONGO_HIATO(2), CASOS_ESPECIALES(3);
+
+        private int value;
+        private static HashMap map = new HashMap<>();
+
+        LessonType(int value) {
+            this.value = value;
+        }
+
+        static {
+            for (LessonType lessonType : LessonType.values()) {
+                map.put(lessonType.value, lessonType);
+            }
+        }
+
+        public static LessonType valueOf(int lessonType) {
+            return (LessonType) map.get(lessonType);
+        }
+
+        public int getValue() {
+          return value;
+        }
+    };
 }

@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.062" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonReglaGeneral"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_regla_general"
@@ -32,25 +32,25 @@
         app:layout_constraintVertical_bias="@fraction/button_lessons_main_vertical_offset" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonDiptongoHiato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_diptongo_hiato"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonReglaGeneral"
         app:layout_constraintVertical_bias="@fraction/button_lessons_vertical_offset" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonCasosEspeciales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_casos_especiales"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDiptongoHiato"
         app:layout_constraintVertical_bias="@fraction/button_lessons_vertical_offset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

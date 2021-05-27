@@ -12,4 +12,5 @@
     <fraction name="answer_group_horizontal_bias">0</fraction>
     <fraction name="button_submit_vertical_bias">0.2</fraction>
     <fraction name="button_submit_horizontal_bias">0.8</fraction>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

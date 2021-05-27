@@ -1,14 +1,21 @@
 package com.powermango.myapplication.menuFragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.powermango.myapplication.LessonsActivity;
 import com.powermango.myapplication.R;
+
+import static com.powermango.myapplication.Constants.*;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +23,9 @@ import com.powermango.myapplication.R;
  * create an instance of this fragment.
  */
 public class leccionesFrag extends Fragment {
+    Button buttonReglaGeneral;
+    Button buttonDiptongoHiato;
+    Button buttonCasosEspeciales;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +72,40 @@ public class leccionesFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lecciones, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        buttonReglaGeneral = getView().findViewById(R.id.buttonReglaGeneral);
+        buttonDiptongoHiato = getView().findViewById(R.id.buttonDiptongoHiato);
+        buttonCasosEspeciales = getView().findViewById(R.id.buttonCasosEspeciales);
+
+        buttonReglaGeneral.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startLessonFragment(LessonType.REGLA_GENERAL);
+            }
+        });
+
+        buttonDiptongoHiato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startLessonFragment(LessonType.DIPTONGO_HIATO);
+            }
+        });
+
+        buttonCasosEspeciales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startLessonFragment(LessonType.CASOS_ESPECIALES);
+            }
+        });
+    }
+
+    private void startLessonFragment(LessonType lessonType) {
+        Intent intent = new Intent(getActivity(), LessonsActivity.class);
+        intent.putExtra("lesson", lessonType.getValue());
+        startActivity(intent);
     }
 }
