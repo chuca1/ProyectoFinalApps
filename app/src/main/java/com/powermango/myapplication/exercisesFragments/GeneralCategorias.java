@@ -96,11 +96,41 @@ public class GeneralCategorias extends Fragment {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
-                viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
-                viewModel.nextFragment();
+                boolean allCorrect = false;
+                allCorrect = evaluarEjercicio(1,spinner1.getSelectedItem().toString());
+                allCorrect = evaluarEjercicio(2, spinner2.getSelectedItem().toString());
+                allCorrect = evaluarEjercicio(3, spinner3.getSelectedItem().toString());
+                allCorrect = evaluarEjercicio(4, spinner4.getSelectedItem().toString());
+                if (allCorrect){
+                    viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+                    viewModel.nextFragment();
+                } else {
+                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    public boolean evaluarEjercicio(Integer numSpinner, String valor) {
+        switch (numSpinner){
+            case 1:
+            case 4:
+                if (valor == "Aguda"){
+                    return true;
+                } else {
+                    return false;
+                }
+            case 2 :
+            case 3 :
+                if (valor == "Grave"){
+                    return true;
+                } else {
+                    return false;
+                }
+        }
+        return false;
     }
 }
