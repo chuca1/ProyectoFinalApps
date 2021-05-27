@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 import com.powermango.myapplication.exercisesFragments.GeneralCategorias;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1;
 import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2;
@@ -23,6 +24,7 @@ public class ExercisesActivity extends AppCompatActivity {
     ExercisesViewModel viewModel;
     FragmentManager fragmentManager;
     ArrayList<Fragment> exercises;
+    ExercisesDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class ExercisesActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
         fragmentManager = getSupportFragmentManager();
         exercises = new ArrayList<>();
+        //database = ExercisesDatabase.getInstance(this);
 
         // Agrega número determinado de ejercicios al arreglo
         for (int i = 0; i < EXERCISES_ARRAY_SIZE; i++) {
