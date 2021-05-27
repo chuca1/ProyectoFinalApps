@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +28,7 @@ public class leccionesFrag extends Fragment {
     Button buttonReglaGeneral;
     Button buttonDiptongoHiato;
     Button buttonCasosEspeciales;
-
+    NavController navController = null;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,25 +82,29 @@ public class leccionesFrag extends Fragment {
         buttonReglaGeneral = getView().findViewById(R.id.buttonReglaGeneral);
         buttonDiptongoHiato = getView().findViewById(R.id.buttonDiptongoHiato);
         buttonCasosEspeciales = getView().findViewById(R.id.buttonCasosEspeciales);
-
+        navController = Navigation.findNavController(view);
         buttonReglaGeneral.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startLessonFragment(LessonType.REGLA_GENERAL);
+                navController.navigate(R.id.action_leccionesFrag_to_reglaGeneralFragment);
+                //startLessonFragment(LessonType.REGLA_GENERAL);
+
             }
         });
 
         buttonDiptongoHiato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startLessonFragment(LessonType.DIPTONGO_HIATO);
+                navController.navigate(R.id.action_leccionesFrag_to_diptongoHiatoFragment);
+                //startLessonFragment(LessonType.DIPTONGO_HIATO);
             }
         });
 
         buttonCasosEspeciales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startLessonFragment(LessonType.CASOS_ESPECIALES);
+                navController.navigate(R.id.action_leccionesFrag_to_casosEspecialesFragment);
+                //startLessonFragment(LessonType.CASOS_ESPECIALES);
             }
         });
     }

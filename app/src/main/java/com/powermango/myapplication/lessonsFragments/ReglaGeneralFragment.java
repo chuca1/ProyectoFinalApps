@@ -2,11 +2,14 @@ package com.powermango.myapplication.lessonsFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.powermango.myapplication.R;
 
@@ -16,7 +19,8 @@ import com.powermango.myapplication.R;
  * create an instance of this fragment.
  */
 public class ReglaGeneralFragment extends Fragment {
-
+    TextView title;
+    TextView desc;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -57,6 +61,14 @@ public class ReglaGeneralFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        title = view.findViewById(R.id.tvLecDescTitle);
+        desc = view.findViewById(R.id.txtDescrip);
+        desc.setText(getString(R.string.reglageneral_desc));
+        title.setText(getString(R.string.reglageneral_titulo));
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

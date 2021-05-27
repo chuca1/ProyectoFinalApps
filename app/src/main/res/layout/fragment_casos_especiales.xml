@@ -6,9 +6,48 @@
     tools:context=".lessonsFragments.CasosEspecialesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="@string/lecciones_btn"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvLecDescTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_dummy"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/txtDescrip"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:lines="10"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:text="@string/dummy_text"
+                android:textSize="15sp" />
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </FrameLayout>

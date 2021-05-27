@@ -23,8 +23,17 @@
         android:label="fragment_lecciones"
         tools:layout="@layout/fragment_lecciones">
         <action
-            android:id="@+id/action_leccionesFrag_to_lessonsActivity"
-            app:destination="@id/lessonsActivity" />
+            android:id="@+id/action_leccionesFrag_to_leccionDescripcion"
+            app:destination="@id/leccionDescripcion" />
+        <action
+            android:id="@+id/action_leccionesFrag_to_diptongoHiatoFragment"
+            app:destination="@id/diptongoHiatoFragment" />
+        <action
+            android:id="@+id/action_leccionesFrag_to_reglaGeneralFragment"
+            app:destination="@id/reglaGeneralFragment" />
+        <action
+            android:id="@+id/action_leccionesFrag_to_casosEspecialesFragment"
+            app:destination="@id/casosEspecialesFragment" />
     </fragment>
     <fragment
         android:id="@+id/leccionDescripcion"
@@ -61,31 +70,6 @@
         android:name="com.powermango.myapplication.exercisesFragments.GeneralCategorias"
         android:label="fragment_general_categorias"
         tools:layout="@layout/fragment_general_categorias" />
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.powermango.myapplication.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <activity
-        android:id="@+id/lessonsActivity"
-        android:name="com.powermango.myapplication.LessonsActivity"
-        android:label="activity_lessons"
-        tools:layout="@layout/activity_lessons" >
-        <action
-            android:id="@+id/action_lessonsActivity_to_reglaGeneralFragment"
-            app:destination="@id/reglaGeneralFragment" />
-        <action
-            android:id="@+id/action_lessonsActivity_to_diptongoHiatoFragment"
-            app:destination="@id/diptongoHiatoFragment" />
-        <action
-            android:id="@+id/action_lessonsActivity_to_casosEspecialesFragment"
-            app:destination="@id/casosEspecialesFragment" />
-    </activity>
     <fragment
         android:id="@+id/reglaGeneralFragment"
         android:name="com.powermango.myapplication.lessonsFragments.ReglaGeneralFragment"

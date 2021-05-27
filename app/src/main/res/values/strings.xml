@@ -49,4 +49,36 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="hiatoTitulo">Diptongo y Hiato</string>
+    <string name="hiatoDesc">- Vocales fuertes (F) AEO aeo\n
+- Vocales débiles (D) UI\n\n
+Diptongo:  vocales juntas, que se pronuncian en la misma sílaba.\n
+- Los diptongos pueden formarse con FD DF DD\n
+- FF nunca hace diptongo\n
+- Las vocales D con tilde se comportan como F\n
+- Hiato.  Vocales subsecuentes que se pronuncian en sílabas distintas.</string>
+    <string name="casosEspeciales_titulo">Contexto- casos especiales</string>
+    <string name="casosEspeciales_desc">Hay palabras cuya acentuación depende del contexto en el que se utilicen, ya que admiten varias formas que son correctas.  Es el caso de algunas conjugaciones verbales, los acentos diacríticos, los interrogativos, etc.
+\nEs necesario mencionar también algunas actualizaciones y casos especiales:\n
+Pronombres demostrativos: este, ese, aquel; no se escriben con tilde.\n
+Monosílabos: No se acentúan, salvo en los casos de diacríticos (mas-más, el-él, etc.)\n
+Interrogativos y exclamativos: adónde, cómo, cuál, cuán, cuándo, cuánto, dónde, qué y quién; pueden tener función de relativos y entonces no se acentúan.\n
+Mayúsculas: llevan tilde según la regla.\n
+Adverbio “solo”: se escribe sin tilde.\n
+Palabras compuestas: la regla se aplica como si fuera una palabra simple.\n
+Palabras compuestas con guion (-): se toman en cuenta como dos palabras.\n
+Adverbios terminados en –mente: conservan la acentuación del adjetivo del cual provienen.\n
+Aún: lleva tilde si puede sustituirse por todavía.</string>
+
+    <string name="reglageneral_titulo">
+        Regla General
+    </string>
+    <string name="reglageneral_desc"> La regla general es la forma común de acentuar palabras y esta se forma tomando en cuenta las sílaba tónica de la palabra.\n
+    Te puedes basar por el tipo de palabra que son por ejemplo:\n
+        -Sobreesdrújulas: Llevan tilde siempre\n
+        -Esdrújulas. Llevan siempre tilde\n
+        -Graves: Llevan tilde cuando no terminan en N,S o vocal\n
+        -Agudas: Llevan tilde cuando terminan en N, S o vocal\n
+    </string>
 </resources>

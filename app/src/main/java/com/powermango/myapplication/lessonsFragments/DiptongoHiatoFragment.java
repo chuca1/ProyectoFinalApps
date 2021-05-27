@@ -2,11 +2,14 @@ package com.powermango.myapplication.lessonsFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.powermango.myapplication.R;
 
@@ -16,6 +19,9 @@ import com.powermango.myapplication.R;
  * create an instance of this fragment.
  */
 public class DiptongoHiatoFragment extends Fragment {
+
+    TextView title;
+    TextView desc;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,6 +61,15 @@ public class DiptongoHiatoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        title = view.findViewById(R.id.tvLecDescTitle);
+        desc = view.findViewById(R.id.txtDescrip);
+        desc.setText(getString(R.string.hiatoDesc));
+        title.setText(getString(R.string.hiatoTitulo));
     }
 
     @Override
