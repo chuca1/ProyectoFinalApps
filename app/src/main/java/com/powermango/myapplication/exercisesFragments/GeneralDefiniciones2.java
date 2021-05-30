@@ -76,7 +76,7 @@ public class GeneralDefiniciones2 extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
         submitButton.setOnClickListener(new View.OnClickListener() {

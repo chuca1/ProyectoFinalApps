@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesDatabase;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -7,7 +8,9 @@ import androidx.room.PrimaryKey;
 public class GeneralCategorias {
     @PrimaryKey(autoGenerate = true)
     private int idPalabra;
+    @NonNull
     private String palabra;
+    @NonNull
     private String valor;
 
     public GeneralCategorias(String palabra, String valor) {

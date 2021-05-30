@@ -59,7 +59,7 @@ public class ExercisesActivity extends AppCompatActivity {
             @Override
             public void onChanged(Integer integer) {
                 Integer currentFragment = viewModel.getCurrentFragment().getValue();
-                Toast.makeText(getApplicationContext(), "Se ha cambiado de fragment " + Integer.toString(currentFragment), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Se ha cambiado de fragment " + Integer.toString(currentFragment), Toast.LENGTH_SHORT).show();
 
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);

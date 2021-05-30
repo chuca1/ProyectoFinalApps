@@ -24,8 +24,7 @@ public abstract class ExercisesDatabase extends RoomDatabase {
 
     private static ExercisesDatabase buildDatabaseInstance(Context context) {
         Log.i("info", "Construyendo la base de datos");
-        return Room.databaseBuilder(context, ExercisesDatabase.class, "exercises.db")
-                .createFromAsset("database/exercises.db")
-                .build();
+        //return Room.databaseBuilder(context, ExercisesDatabase.class, "exercises.db").allowMainThreadQueries().build();
+        return Room.databaseBuilder(context, ExercisesDatabase.class, "exercises.db").allowMainThreadQueries().createFromAsset("database/exercises.db").build();
     }
 }
