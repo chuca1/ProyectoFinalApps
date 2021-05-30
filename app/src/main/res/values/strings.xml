@@ -31,6 +31,14 @@
         <item>Sobreesdrújula</item>
     </string-array>
 
+    <string name="diptongo">Diptongos</string>
+    <string name="hiato">Hiatos</string>
+    <string name="empezar">Empezar</string>
+    <string name="timer">60</string>
+    <string name="cero">0</string>
+    <string name="puntos">Puntos:</string>
+
+
     <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
     <string name="general_definiciones_1_agudas">Agudas</string>
     <string name="general_definiciones_1_graves">Graves</string>
