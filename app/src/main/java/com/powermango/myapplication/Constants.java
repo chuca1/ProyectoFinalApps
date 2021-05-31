@@ -3,11 +3,12 @@ package com.powermango.myapplication;
 import java.util.HashMap;
 
 public final class Constants {
-    public static final int EXERCISES_ARRAY_SIZE = 5;
-    public static final int EXERCISES_AVAILABLE = 3;
+    public static final int EXERCISES_ARRAY_SIZE = 7;
+    public static final int EXERCISES_AVAILABLE = 7;
 
     public enum ExerciseType {
-        GENERAL_CATEGORIAS(1), GENERAL_DEFINICIONES_1(2), GENERAL_DEFINICIONES_2(3);
+        GENERAL_CATEGORIAS(1), GENERAL_DEFINICIONES_1(2), GENERAL_DEFINICIONES_2(3), DIPTONGO_HIATO(4),
+        ESPECIALES_INTERROGATIVOS_EXCLAMATIVOS(5), ESPECIALES_MONOSILABOS(6), INTEGRADOR(7);
 
         private int value;
         private static HashMap map = new HashMap<>();
@@ -22,8 +23,8 @@ public final class Constants {
             }
         }
 
-        public static ExerciseType valueOf(int pageType) {
-            return (ExerciseType) map.get(pageType);
+        public static ExerciseType valueOf(int exerciseType) {
+            return (ExerciseType) map.get(exerciseType);
         }
 
         //public int getValue() {

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
@@ -34,6 +35,9 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+
+    TextView textViewPrompt;
+    RadioGroup radioGroupRespuestas;
     Button submitButton;
 
     public EjercicioGeneralDefiniciones1Fragment() {
@@ -76,23 +80,27 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         //Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+
+        textViewPrompt = getView().findViewById(R.id.textViewPrompt);
+        radioGroupRespuestas = getView().findViewById(R.id.radioGroupRespuestas);
         submitButton = getView().findViewById(R.id.buttonSubmit);
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadioGroup respuestas = getView().findViewById(R.id.radioGroupAnswer);
-                int radioButtonID = respuestas.getCheckedRadioButtonId();
-                if (radioButtonID == R.id.radioButtonGraves){
-                    viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+
+//                int radioButtonID = respuestas.getCheckedRadioButtonId();
+//                if (radioButtonID == R.id.radioButtonGraves){
+
                     viewModel.nextFragment();
-                } else {
-                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
-
-        super.onViewCreated(view, savedInstanceState);
     }
 }

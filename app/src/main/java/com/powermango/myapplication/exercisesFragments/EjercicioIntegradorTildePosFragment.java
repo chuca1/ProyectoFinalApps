@@ -92,7 +92,7 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                viewModel.nextFragment();
             }
         });
     }

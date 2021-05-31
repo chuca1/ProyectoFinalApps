@@ -88,5 +88,12 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
         spinner1 = getView().findViewById(R.id.spinner1);
         spinner2 = getView().findViewById(R.id.spinner2);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.nextFragment();
+            }
+        });
     }
 }

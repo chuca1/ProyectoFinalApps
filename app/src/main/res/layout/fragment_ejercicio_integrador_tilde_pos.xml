@@ -81,13 +81,13 @@
                 android:id="@+id/radioButtonSi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/diptongo_hiato_diptongo" />
+                android:text="@string/integrador_si" />
 
             <RadioButton
                 android:id="@+id/radioButtonNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/diptongo_hiato_hiato" />
+                android:text="@string/integrador_no" />
         </RadioGroup>
 
         <Spinner

@@ -79,7 +79,9 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.general_categorias_respuestas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1 = getView().findViewById(R.id.spinner1);
@@ -92,45 +94,44 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         spinner4.setAdapter(adapter);
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
+        Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
-                boolean allCorrect = false;
-                allCorrect = evaluarEjercicio(1,spinner1.getSelectedItem().toString());
-                allCorrect = evaluarEjercicio(2, spinner2.getSelectedItem().toString());
-                allCorrect = evaluarEjercicio(3, spinner3.getSelectedItem().toString());
-                allCorrect = evaluarEjercicio(4, spinner4.getSelectedItem().toString());
-                if (allCorrect){
-                    viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+//                boolean allCorrect = false;
+//                allCorrect = evaluarEjercicio(1,spinner1.getSelectedItem().toString());
+//                allCorrect = evaluarEjercicio(2, spinner2.getSelectedItem().toString());
+//                allCorrect = evaluarEjercicio(3, spinner3.getSelectedItem().toString());
+//                allCorrect = evaluarEjercicio(4, spinner4.getSelectedItem().toString());
+//                if (allCorrect){
                     viewModel.nextFragment();
-                } else {
-                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
+//                }
 
             }
         });
-
-        super.onViewCreated(view, savedInstanceState);
     }
 
-    public boolean evaluarEjercicio(Integer numSpinner, String valor) {
-        switch (numSpinner){
-            case 1:
-            case 4:
-                if (valor == "Aguda"){
-                    return true;
-                } else {
-                    return false;
-                }
-            case 2 :
-            case 3 :
-                if (valor == "Grave"){
-                    return true;
-                } else {
-                    return false;
-                }
-        }
-        return false;
-    }
+//    public boolean evaluarEjercicio(Integer numSpinner, String valor) {
+//        switch (numSpinner){
+//            case 1:
+//            case 4:
+//                if (valor == "Aguda"){
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//            case 2 :
+//            case 3 :
+//                if (valor == "Grave"){
+//                    return true;
+//                } else {
+//                    return false;
+//                }
+//        }
+//        return false;
+//    }
 }

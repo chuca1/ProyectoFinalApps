@@ -8,11 +8,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+import com.powermango.myapplication.exercisesFragments.EjercicioDiptongoHiatoFragment;
+import com.powermango.myapplication.exercisesFragments.EjercicioEspecialesInteExclaFragment;
+import com.powermango.myapplication.exercisesFragments.EjercicioEspecialesMonosilabosFragment;
 import com.powermango.myapplication.exercisesFragments.EjercicioGeneralCategoriasFragment;
 import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones1Fragment;
 import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones2Fragment;
+import com.powermango.myapplication.exercisesFragments.EjercicioIntegradorTildePosFragment;
+
 import static com.powermango.myapplication.Constants.*;
 
 import java.util.ArrayList;
@@ -36,8 +42,9 @@ public class ExercisesActivity extends AppCompatActivity {
 
         // Agrega número determinado de ejercicios al arreglo
         for (int i = 0; i < EXERCISES_ARRAY_SIZE; i++) {
-            int randomInt = ThreadLocalRandom.current().nextInt(0, EXERCISES_AVAILABLE + 1);
-            //Log.i("info", "Número obtenido: " + Integer.toString(randomInt));
+            //int randomInt = ThreadLocalRandom.current().nextInt(0, EXERCISES_AVAILABLE + 1);
+            int randomInt = i + 1;
+            Log.i("info", "Número obtenido: " + Integer.toString(randomInt));
             ExerciseType exerciseType = ExerciseType.valueOf(randomInt);
 
             switch (exerciseType) {
@@ -49,6 +56,18 @@ public class ExercisesActivity extends AppCompatActivity {
                     break;
                 case GENERAL_DEFINICIONES_2:
                     exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
+                    break;
+                case DIPTONGO_HIATO:
+                    exercises.add(EjercicioDiptongoHiatoFragment.newInstance("", ""));
+                    break;
+                case ESPECIALES_INTERROGATIVOS_EXCLAMATIVOS:
+                    exercises.add(EjercicioEspecialesInteExclaFragment.newInstance("", ""));
+                    break;
+                case ESPECIALES_MONOSILABOS:
+                    exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
+                    break;
+                case INTEGRADOR:
+                    exercises.add(EjercicioIntegradorTildePosFragment.newInstance("", ""));
                     break;
             }
         }

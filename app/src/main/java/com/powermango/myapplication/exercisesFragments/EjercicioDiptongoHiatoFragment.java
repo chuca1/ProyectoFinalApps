@@ -90,5 +90,12 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         spinnerFormadoPor = getView().findViewById(R.id.spinnerFormadoPor);
         spinnerTildeEn = getView().findViewById(R.id.spinnerTildeEn);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewModel.nextFragment();
+            }
+        });
     }
 }

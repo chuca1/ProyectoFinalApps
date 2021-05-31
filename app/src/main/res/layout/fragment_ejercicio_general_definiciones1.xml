@@ -26,7 +26,7 @@
             app:layout_constraintVertical_bias="@fraction/question_vertical_bias" />
 
         <RadioGroup
-            android:id="@+id/radioGroupAnswer"
+            android:id="@+id/radioGroupRespuestas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="@fraction/button_submit_horizontal_bias"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroupAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupRespuestas"
             app:layout_constraintVertical_bias="@fraction/button_submit_vertical_bias" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

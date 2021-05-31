@@ -34,6 +34,8 @@ public class EjercicioGeneralDefiniciones2Fragment extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+
+    RadioGroup radioGroupRespuestas;
     Button submitButton;
 
     public EjercicioGeneralDefiniciones2Fragment() {
@@ -76,23 +78,24 @@ public class EjercicioGeneralDefiniciones2Fragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         //Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+
         submitButton = getView().findViewById(R.id.buttonSubmit);
+        radioGroupRespuestas = getView().findViewById(R.id.radioGroupRespuestas);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadioGroup respuestas = getView().findViewById(R.id.radioGroupAnswer);
-                int radioButtonID = respuestas.getCheckedRadioButtonId();
-                if (radioButtonID == R.id.radioButtonGraves){
-                    viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+//                int radioButtonID = respuestas.getCheckedRadioButtonId();
+//                if (radioButtonID == R.id.radioButtonGraves){
+
                     viewModel.nextFragment();
-                } else {
-                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
-
-        super.onViewCreated(view, savedInstanceState);
     }
 }
