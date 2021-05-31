@@ -48,6 +48,8 @@
     <string name="general_definiciones_2_respuesta_1">Siempre</string>
     <string name="general_definiciones_2_respuesta_2">Cuando termina en N, S o vocal</string>
     <string name="general_definiciones_2_respuesta_3">Cuando no terminan en N, S o vocal</string>
+
+    <string name="especiales_prompt">Selecciona la palabra con o sin tilde según lo indique el contexto:</string>
     <string name="title_activity_lessons">LessonsActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -89,4 +91,6 @@ Aún: lleva tilde si puede sustituirse por todavía.</string>
         -Graves: Llevan tilde cuando no terminan en N,S o vocal\n
         -Agudas: Llevan tilde cuando terminan en N, S o vocal\n
     </string>
+
+    <string name="default_text">Cargando...</string>
 </resources>

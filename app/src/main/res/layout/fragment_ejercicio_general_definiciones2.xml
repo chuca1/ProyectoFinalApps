@@ -14,11 +14,11 @@
         android:layout_marginRight="@dimen/layout_margin">
 
         <TextView
-            android:id="@+id/textViewQuestion"
+            android:id="@+id/textViewPrompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_definiciones_2_pregunta"
-            android:textSize="@dimen/question_text_size"
+            android:textSize="@dimen/prompt_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="@fraction/question_horizontal_bias"
@@ -34,7 +34,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="@fraction/answer_group_horizontal_bias"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewQuestion"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrompt"
             app:layout_constraintVertical_bias="@fraction/answer_group_vertical_bias">
 
             <RadioButton
