@@ -2,12 +2,19 @@ package com.powermango.myapplication.exercisesFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 
 /**
@@ -25,6 +32,12 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ExercisesViewModel viewModel;
+
+    TextView textViewOracion1, textViewOracion2;
+    Spinner spinner1, spinner2;
+    Button buttonSubmit;
 
     public EjercicioEspecialesInteExclaFragment() {
         // Required empty public constructor
@@ -62,5 +75,18 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ejercicio_especiales_inte_excla, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+
+        textViewOracion1 = getView().findViewById(R.id.textViewOracion1);
+        textViewOracion2 = getView().findViewById(R.id.textViewOracion2);
+        spinner1 = getView().findViewById(R.id.spinner1);
+        spinner2 = getView().findViewById(R.id.spinner2);
+        buttonSubmit = getView().findViewById(R.id.buttonSubmit);
     }
 }

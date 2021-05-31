@@ -68,6 +68,13 @@
     <string name="especiales_prompt">Selecciona la palabra con o sin tilde según lo indique el contexto:</string>
 
     <string name="integrador_prompt">Elige las opciones correctas:</string>
+    <string name="integrador_tilde">¿Lleva tilde?</string>
+    <string name="integrador_silaba">¿En qué sílaba la lleva?</string>
+    <string-array name="integrador_silaba_respuestas">
+        <item>Última</item>
+        <item>Penúltima</item>
+        <item>Antepenúltima</item>
+    </string-array>
 
     <string name="title_activity_lessons">LessonsActivity</string>
     <!-- Strings used for fragments for navigation -->

@@ -54,6 +54,18 @@
         <action
             android:id="@+id/action_menuEjercicios_to_generalCategorias"
             app:destination="@id/generalCategorias" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_ejercicioDiptongoHiatoFragment"
+            app:destination="@id/ejercicioDiptongoHiatoFragment" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_ejercicioEspecialesInteExclaFragment"
+            app:destination="@id/ejercicioEspecialesInteExclaFragment" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_ejercicioEspecialesMonosilabosFragment"
+            app:destination="@id/ejercicioEspecialesMonosilabosFragment" />
+        <action
+            android:id="@+id/action_menuEjercicios_to_ejercicioIntegradorTildePosFragment"
+            app:destination="@id/ejercicioIntegradorTildePosFragment" />
     </fragment>
     <fragment
         android:id="@+id/generalDefiniciones1"
@@ -85,4 +97,24 @@
         android:name="com.powermango.myapplication.lessonsFragments.CasosEspecialesFragment"
         android:label="fragment_casos_especiales"
         tools:layout="@layout/fragment_casos_especiales" />
+    <fragment
+        android:id="@+id/ejercicioDiptongoHiatoFragment"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioDiptongoHiatoFragment"
+        android:label="fragment_ejercicio_diptongo_hiato"
+        tools:layout="@layout/fragment_ejercicio_diptongo_hiato" />
+    <fragment
+        android:id="@+id/ejercicioEspecialesInteExclaFragment"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioEspecialesInteExclaFragment"
+        android:label="fragment_ejercicio_especiales_inte_excla"
+        tools:layout="@layout/fragment_ejercicio_especiales_inte_excla" />
+    <fragment
+        android:id="@+id/ejercicioEspecialesMonosilabosFragment"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioEspecialesMonosilabosFragment"
+        android:label="fragment_ejercicio_especiales_monosilabos"
+        tools:layout="@layout/fragment_ejercicio_especiales_monosilabos" />
+    <fragment
+        android:id="@+id/ejercicioIntegradorTildePosFragment"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioIntegradorTildePosFragment"
+        android:label="fragment_ejercicio_integrador_tilde_pos"
+        tools:layout="@layout/fragment_ejercicio_integrador_tilde_pos" />
 </navigation>

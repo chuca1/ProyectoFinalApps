@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="408dp"
-            android:text="@string/diptongo_hiato_tiene_un"
+            android:text="@string/integrador_tilde"
             android:textSize="@dimen/clause_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +49,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.871"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinnerSilabaQueLoLleva"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerSilaba"
             app:layout_constraintVertical_bias="0.518" />
 
         <TextView
@@ -66,7 +66,7 @@
             app:layout_constraintVertical_bias="0.065" />
 
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroupTilde"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -91,7 +91,7 @@
         </RadioGroup>
 
         <Spinner
-            android:id="@+id/spinnerSilabaQueLoLleva"
+            android:id="@+id/spinnerSilaba"
             android:layout_width="229dp"
             android:layout_height="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -105,13 +105,13 @@
             android:id="@+id/textViewSilabaQueLoLleva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/diptongo_hiato_formado_por"
+            android:text="@string/integrador_silaba"
             android:textSize="@dimen/clause_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupTilde"
             app:layout_constraintVertical_bias="0.024" />
 
 

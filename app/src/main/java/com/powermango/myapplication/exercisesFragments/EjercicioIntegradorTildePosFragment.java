@@ -2,12 +2,20 @@ package com.powermango.myapplication.exercisesFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 
 /**
@@ -25,6 +33,12 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ExercisesViewModel viewModel;
+    TextView textViewPalabra;
+    RadioGroup radioGroupTilde;
+    Spinner spinnerSilaba;
+    Button buttonSubmit;
 
     public EjercicioIntegradorTildePosFragment() {
         // Required empty public constructor
@@ -62,5 +76,24 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ejercicio_integrador_tilde_pos, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);;
+
+        textViewPalabra = getView().findViewById(R.id.textViewPalabra);
+        radioGroupTilde = getView().findViewById(R.id.radioGroupTilde);
+        spinnerSilaba = getView().findViewById(R.id.spinnerSilaba);
+        buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
