@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ea4af936e1152069c9498449ed65be71",
+    "identityHash": "a54cc9d93fb983181575816afca0da15",
     "entities": [
       {
         "tableName": "general_categorias",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPalabra` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT, `valor` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPalabra` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `valor` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "idPalabra",
@@ -18,13 +18,13 @@
             "fieldPath": "palabra",
             "columnName": "palabra",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "valor",
             "columnName": "valor",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -40,7 +40,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ea4af936e1152069c9498449ed65be71')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a54cc9d93fb983181575816afca0da15')"
     ]
   }
 }

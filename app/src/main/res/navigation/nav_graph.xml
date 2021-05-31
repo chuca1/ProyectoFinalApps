@@ -57,19 +57,19 @@
     </fragment>
     <fragment
         android:id="@+id/generalDefiniciones1"
-        android:name="com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones1Fragment"
         android:label="fragment_general_definiciones1"
-        tools:layout="@layout/fragment_general_definiciones1" />
+        tools:layout="@layout/fragment_ejercicio_general_definiciones1" />
     <fragment
         android:id="@+id/generalDefiniciones2"
-        android:name="com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones2Fragment"
         android:label="fragment_general_definiciones2"
-        tools:layout="@layout/fragment_general_definiciones2" />
+        tools:layout="@layout/fragment_ejercicio_general_definiciones2" />
     <fragment
         android:id="@+id/generalCategorias"
-        android:name="com.powermango.myapplication.exercisesFragments.GeneralCategorias"
+        android:name="com.powermango.myapplication.exercisesFragments.EjercicioGeneralCategoriasFragment"
         android:label="fragment_general_categorias"
-        tools:layout="@layout/fragment_general_categorias" />
+        tools:layout="@layout/fragment_ejercicio_general_categorias" />
     <fragment
         android:id="@+id/reglaGeneralFragment"
         android:name="com.powermango.myapplication.lessonsFragments.ReglaGeneralFragment"

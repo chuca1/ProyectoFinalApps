@@ -19,10 +19,10 @@ import com.powermango.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GeneralDefiniciones2#newInstance} factory method to
+ * Use the {@link EjercicioGeneralDefiniciones2Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GeneralDefiniciones2 extends Fragment {
+public class EjercicioGeneralDefiniciones2Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +36,7 @@ public class GeneralDefiniciones2 extends Fragment {
     ExercisesViewModel viewModel;
     Button submitButton;
 
-    public GeneralDefiniciones2() {
+    public EjercicioGeneralDefiniciones2Fragment() {
         // Required empty public constructor
     }
 
@@ -46,11 +46,11 @@ public class GeneralDefiniciones2 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment GeneralDefiniciones2.
+     * @return A new instance of fragment EjercicioGeneralDefiniciones2Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GeneralDefiniciones2 newInstance(String param1, String param2) {
-        GeneralDefiniciones2 fragment = new GeneralDefiniciones2();
+    public static EjercicioGeneralDefiniciones2Fragment newInstance(String param1, String param2) {
+        EjercicioGeneralDefiniciones2Fragment fragment = new EjercicioGeneralDefiniciones2Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,7 +71,7 @@ public class GeneralDefiniciones2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_general_definiciones2, container, false);
+        return inflater.inflate(R.layout.fragment_ejercicio_general_definiciones2, container, false);
     }
 
     @Override

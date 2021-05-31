@@ -8,13 +8,11 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
-import com.powermango.myapplication.exercisesFragments.GeneralCategorias;
-import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones1;
-import com.powermango.myapplication.exercisesFragments.GeneralDefiniciones2;
+import com.powermango.myapplication.exercisesFragments.EjercicioGeneralCategoriasFragment;
+import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones1Fragment;
+import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones2Fragment;
 import static com.powermango.myapplication.Constants.*;
 
 import java.util.ArrayList;
@@ -44,13 +42,13 @@ public class ExercisesActivity extends AppCompatActivity {
 
             switch (exerciseType) {
                 case GENERAL_CATEGORIAS:
-                    exercises.add(GeneralCategorias.newInstance("", ""));
+                    exercises.add(EjercicioGeneralCategoriasFragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_1:
-                    exercises.add(GeneralDefiniciones1.newInstance("", ""));
+                    exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_2:
-                    exercises.add(GeneralDefiniciones2.newInstance("", ""));
+                    exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
                     break;
             }
         }

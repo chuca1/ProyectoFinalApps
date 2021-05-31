@@ -20,10 +20,10 @@ import com.powermango.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GeneralCategorias#newInstance} factory method to
+ * Use the {@link EjercicioGeneralCategoriasFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GeneralCategorias extends Fragment {
+public class EjercicioGeneralCategoriasFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,7 +39,7 @@ public class GeneralCategorias extends Fragment {
 
     Button submitButton;
 
-    public GeneralCategorias() {
+    public EjercicioGeneralCategoriasFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +49,11 @@ public class GeneralCategorias extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment GeneralCategorias.
+     * @return A new instance of fragment EjercicioGeneralCategoriasFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GeneralCategorias newInstance(String param1, String param2) {
-        GeneralCategorias fragment = new GeneralCategorias();
+    public static EjercicioGeneralCategoriasFragment newInstance(String param1, String param2) {
+        EjercicioGeneralCategoriasFragment fragment = new EjercicioGeneralCategoriasFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -74,7 +74,7 @@ public class GeneralCategorias extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_general_categorias, container, false);
+        return inflater.inflate(R.layout.fragment_ejercicio_general_categorias, container, false);
     }
 
     @Override

@@ -1,27 +1,21 @@
-package com.powermango.myapplication.lessonsFragments;
+package com.powermango.myapplication.exercisesFragments;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.powermango.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DiptongoHiatoFragment#newInstance} factory method to
+ * Use the {@link EjercicioEspecialesInteExclaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DiptongoHiatoFragment extends Fragment {
-
-    TextView title;
-    TextView desc;
+public class EjercicioEspecialesInteExclaFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +26,7 @@ public class DiptongoHiatoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DiptongoHiatoFragment() {
+    public EjercicioEspecialesInteExclaFragment() {
         // Required empty public constructor
     }
 
@@ -42,11 +36,11 @@ public class DiptongoHiatoFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EjercicioDiptongoHiatoFragment.
+     * @return A new instance of fragment EjercicioEspecialesInteExclaFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DiptongoHiatoFragment newInstance(String param1, String param2) {
-        DiptongoHiatoFragment fragment = new DiptongoHiatoFragment();
+    public static EjercicioEspecialesInteExclaFragment newInstance(String param1, String param2) {
+        EjercicioEspecialesInteExclaFragment fragment = new EjercicioEspecialesInteExclaFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,18 +58,9 @@ public class DiptongoHiatoFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        title = view.findViewById(R.id.tvLecDescTitle);
-        desc = view.findViewById(R.id.txtDescrip);
-        desc.setText(getString(R.string.hiatoDesc));
-        title.setText(getString(R.string.hiatoTitulo));
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_diptongo_hiato, container, false);
+        return inflater.inflate(R.layout.fragment_ejercicio_especiales_inte_excla, container, false);
     }
 }
