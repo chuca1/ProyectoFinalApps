@@ -67,6 +67,8 @@
 
     <string name="especiales_prompt">Selecciona la palabra con o sin tilde según lo indique el contexto:</string>
 
+    <string name="integrador_prompt">Elige las opciones correctas:</string>
+
     <string name="title_activity_lessons">LessonsActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
