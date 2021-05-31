@@ -3,6 +3,7 @@
     <dimen name="layout_margin">15dp</dimen>
 
     <dimen name="prompt_text_size">25sp</dimen>
+    <dimen name="main_word_text_size">35sp</dimen>
     <dimen name="clause_text_size">20sp</dimen>
     <dimen name="answer_text_size">20sp</dimen>
     <dimen name="button_submit_text_size">20sp</dimen>

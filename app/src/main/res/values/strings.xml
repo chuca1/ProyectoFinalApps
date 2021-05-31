@@ -50,6 +50,23 @@
     <string name="general_definiciones_2_respuesta_3">Cuando no terminan en N, S o vocal</string>
 
     <string name="especiales_prompt">Selecciona la palabra con o sin tilde según lo indique el contexto:</string>
+
+    <string name="diptongo_hiato_prompt">Elige las opciones correctas:</string>
+    <string name="diptongo_hiato_tiene_un">Tiene un:</string>
+    <string name="diptongo_hiato_formado_por">Formado por:</string>
+    <string name="diptongo_hiato_lleva_tilde_en">Lleva tilde en:</string>
+    <string name="diptongo_hiato_diptongo">Diptongo</string>
+    <string name="diptongo_hiato_hiato">Hiato</string>
+    <string-array name="diptongo_hiato_diptongo_respuestas">
+        <item>Vocal fuerte y vocal débil</item>
+        <item>Vocal débil y vocal fuerte</item>
+        <item>Dos vocales débiles</item>
+    </string-array>
+    <string-array name="diptongo_hiato_hiato_respuestas">
+        <item>Vocales juntas en sílabas distintas</item>
+        <item>Vocales juntas en misma sílaba</item>
+    </string-array>
+
     <string name="title_activity_lessons">LessonsActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
