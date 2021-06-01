@@ -12,4 +12,7 @@ public interface GeneralCategoriasDao {
 
     @Query("select * from general_categorias where ID = :ID")
     GeneralCategoriasTable selectEntryById(int ID);
+
+    @Query("select count(*) from general_categorias")
+    int selectCountAll();
 }

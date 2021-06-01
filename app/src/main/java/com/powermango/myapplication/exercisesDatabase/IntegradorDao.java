@@ -12,4 +12,7 @@ public interface IntegradorDao {
 
     @Query("select * from integrador where ID = :ID")
     IntegradorTable selectEntryById(int ID);
+
+    @Query("select count(*) from integrador")
+    int selectCountAll();
 }

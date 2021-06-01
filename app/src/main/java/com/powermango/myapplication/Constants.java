@@ -3,6 +3,9 @@ package com.powermango.myapplication;
 import java.util.HashMap;
 
 public final class Constants {
+    public static final String DEFAULT_TEXT_VALUE = "default";
+    public static final int DEFAULT_INTEGER_VALUE = 0;
+
     public static final int EXERCISES_ARRAY_SIZE = 7;
     public static final int EXERCISES_AVAILABLE = 7;
 

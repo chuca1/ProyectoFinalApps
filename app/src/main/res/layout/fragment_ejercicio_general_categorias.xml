@@ -26,7 +26,7 @@
             app:layout_constraintVertical_bias="0.568" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/palabra4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_categorias_palabra_4"
@@ -39,7 +39,7 @@
             app:layout_constraintVertical_bias="0.566" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/palabra2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_categorias_palabra_2"
@@ -78,7 +78,7 @@
             app:layout_constraintVertical_bias="0.382" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/palabra3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_categorias_palabra_3"
@@ -117,7 +117,7 @@
             app:layout_constraintVertical_bias="0.034" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/palabra1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/general_categorias_palabra_1"

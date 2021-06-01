@@ -4,19 +4,32 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.powermango.myapplication.Constants;
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+import com.powermango.myapplication.exercisesDatabase.GeneralCategoriasTable;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.powermango.myapplication.Constants.*;
+import com.powermango.myapplication.exercisesDatabase.GeneralDefinicionesTable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,10 +47,16 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    ExercisesViewModel viewModel;
-    Spinner spinner1, spinner2, spinner3, spinner4;
+    private static final int NUMBER_OF_EXERCISES = 4;
 
+    ExercisesViewModel viewModel;
+    ExercisesDatabase database;
+    TextView[] palabras;
+    Spinner spinner1, spinner2, spinner3, spinner4;
     Button submitButton;
+
+    GeneralCategoriasTable[] entries;
+    String[] respuestas;
 
     public EjercicioGeneralCategoriasFragment() {
         // Required empty public constructor
@@ -68,6 +87,8 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        database = ExercisesDatabase.getInstance(getContext());
     }
 
     @Override
@@ -80,58 +101,87 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // Data structures initialization
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+        entries = new GeneralCategoriasTable[NUMBER_OF_EXERCISES];
+        palabras = new TextView[NUMBER_OF_EXERCISES];
+        respuestas = new String[NUMBER_OF_EXERCISES];
 
+        // TextView initialization
+        palabras[0] = ((TextView) getView().findViewById(R.id.palabra1));
+        palabras[1] = ((TextView) getView().findViewById(R.id.palabra2));
+        palabras[2] = ((TextView) getView().findViewById(R.id.palabra3));
+        palabras[3] = ((TextView) getView().findViewById(R.id.palabra4));
+
+        // Spinner initialization
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.general_categorias_respuestas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1 = getView().findViewById(R.id.spinner1);
         spinner1.setAdapter(adapter);
-        spinner2 = getView().findViewById(R.id.spinner3);
+        spinner2 = getView().findViewById(R.id.spinner2);
         spinner2.setAdapter(adapter);
-        spinner3 = getView().findViewById(R.id.spinner2);
+        spinner3 = getView().findViewById(R.id.spinner3);
         spinner3.setAdapter(adapter);
         spinner4 = getView().findViewById(R.id.spinner4);
         spinner4.setAdapter(adapter);
+
+        // Button initialization
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
-        Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
+        // Get randomly selected entries from correspondent table
+        for (int i = 0, size = database.getGeneralCategoriasDao().selectCountAll(); i < NUMBER_OF_EXERCISES; i++) {
+            int tempId = viewModel.generateRandomInt(size);
+            entries[i] = database.getGeneralCategoriasDao().selectEntryById(tempId);
+        }
+
+        // Debug: manual entries
+        entries[0] = new GeneralCategoriasTable("palabra1", "Aguda");
+        entries[1] = new GeneralCategoriasTable("palabra2", "Grave");
+        entries[2] = new GeneralCategoriasTable("palabra3", "Esdrújula");
+        entries[3] = new GeneralCategoriasTable("palabra4", "Sobreesdrújula");
+
+        // Fill TextViews
+        for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
+            palabras[i].setText(entries[i].getPalabra());
+        }
+
+        // Fill answers with default text value
+        Arrays.fill(respuestas, Constants.DEFAULT_TEXT_VALUE);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getContext(), "El botón responde", Toast.LENGTH_SHORT).show();
-//                boolean allCorrect = false;
-//                allCorrect = evaluarEjercicio(1,spinner1.getSelectedItem().toString());
-//                allCorrect = evaluarEjercicio(2, spinner2.getSelectedItem().toString());
-//                allCorrect = evaluarEjercicio(3, spinner3.getSelectedItem().toString());
-//                allCorrect = evaluarEjercicio(4, spinner4.getSelectedItem().toString());
-//                if (allCorrect){
-                    viewModel.nextFragment();
-//                } else {
-//                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
-//                }
+                // Get selected answers
+                respuestas[0] = spinner1.getSelectedItem().toString();
+                respuestas[1] = spinner2.getSelectedItem().toString();
+                respuestas[2] = spinner3.getSelectedItem().toString();
+                respuestas[3] = spinner4.getSelectedItem().toString();
 
+                if (evaluarEjercicio())
+                    viewModel.nextFragment();
             }
         });
     }
 
-//    public boolean evaluarEjercicio(Integer numSpinner, String valor) {
-//        switch (numSpinner){
-//            case 1:
-//            case 4:
-//                if (valor == "Aguda"){
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            case 2 :
-//            case 3 :
-//                if (valor == "Grave"){
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//        }
-//        return false;
-//    }
+    private boolean evaluarEjercicio() {
+        int correctCount = 0;
+
+        for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
+            Log.i("info", "Valor entrada: " + entries[i].getValor());
+            Log.i("info", "Valor respuesta: " + respuestas[i]);
+
+            if (respuestas[i].equals(entries[i].getValor())) {
+                palabras[i].setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
+                correctCount++;
+            }
+            else {
+                Log.i("info", "No son iguales");
+                palabras[i].setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+            }
+        }
+
+        Log.i("info", "//////////////////////////");
+        Toast.makeText(getContext(), "Score: " + Integer.toString(correctCount), Toast.LENGTH_SHORT).show();
+        return (correctCount == NUMBER_OF_EXERCISES);
+    }
 }

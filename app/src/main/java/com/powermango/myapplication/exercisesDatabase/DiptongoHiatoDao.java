@@ -12,4 +12,7 @@ public interface DiptongoHiatoDao {
 
     @Query("select * from diptongo_hiato where ID = :ID")
     DiptongoHiatoTable selectEntryById(int ID);
+
+    @Query("select count(*) from diptongo_hiato")
+    int selectCountAll();
 }

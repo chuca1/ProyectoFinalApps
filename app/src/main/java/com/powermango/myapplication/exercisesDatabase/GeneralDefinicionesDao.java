@@ -12,4 +12,7 @@ public interface GeneralDefinicionesDao {
 
     @Query("select * from general_definiciones where ID = :ID")
     GeneralDefinicionesTable selectEntryById(int ID);
+
+    @Query("select count(*) from general_definiciones")
+    int selectCountAll();
 }

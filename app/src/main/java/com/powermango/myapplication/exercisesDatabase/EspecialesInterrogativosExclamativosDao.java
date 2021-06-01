@@ -12,4 +12,7 @@ public interface EspecialesInterrogativosExclamativosDao {
 
     @Query("select * from especiales_interrogativos_exclamativos where ID = :ID")
     EspecialesInterrogativosExclamativosTable selectEntryById(int ID);
+
+    @Query("select count(*) from especiales_interrogativos_exclamativos")
+    int selectCountAll();
 }

@@ -101,7 +101,7 @@ public class GeneralDiptongo extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        TextView timer = (TextView) getView().findViewById(R.id.textView);
+        TextView timer = (TextView) getView().findViewById(R.id.timer);
         TextView palabra = (TextView) getView().findViewById(R.id.palabra);
         Button empezar = (Button) getView().findViewById(R.id.empezar);
         Button diptongo = (Button) getView().findViewById(R.id.diptongo);
