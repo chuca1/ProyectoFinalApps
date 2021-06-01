@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainMenu extends Fragment {
 
     Button menuLec;
     Button menuEje;
-
+    ViewPager2 viewPage;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,17 +33,18 @@ public class MainMenu extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        menuLec = view.findViewById(R.id.btnLecciones);
-        menuEje = view.findViewById(R.id.btnPracticar);
+        //menuLec = view.findViewById(R.id.btnLecciones);
+        //menuEje = view.findViewById(R.id.btnPracticar);
 
-        menuLec.setOnClickListener(viewl -> {
+        /*menuLec.setOnClickListener(viewl -> {
             navController.navigate(R.id.action_mainMenu_to_leccionesFrag);
         });
 
         menuEje.setOnClickListener(viewl -> {
             navController.navigate(R.id.action_mainMenu_to_menuEjercicios);
-        });
-
+        });*/
+        viewPage = view.findViewById(R.id.pager);
+        viewPage.setAdapter(new ViewPageAdapter(view.getContext(),viewPage,navController));
     }
 
     @Override
