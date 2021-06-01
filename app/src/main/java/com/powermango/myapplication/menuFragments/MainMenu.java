@@ -15,9 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.powermango.myapplication.R;
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 
 
 public class MainMenu extends Fragment {
+    private ExercisesDatabase database;
     NavController navController = null;
 
     Button menuLec;
@@ -32,6 +34,10 @@ public class MainMenu extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        // PRUEBA PARA VER SI BASE DE DATOS FUNCIONA
+        database = ExercisesDatabase.getInstance(getContext());
+        database.getGeneralCategoriasDao().selectAllEntries();
+        // PRUEBA PARA VER SI BASE DE DATOS FUNCIONA
         navController = Navigation.findNavController(view);
         //menuLec = view.findViewById(R.id.btnLecciones);
         //menuEje = view.findViewById(R.id.btnPracticar);

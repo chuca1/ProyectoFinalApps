@@ -8,8 +8,8 @@ import java.util.List;
 @Dao
 public interface GeneralCategoriasDao {
     @Query("select * from general_categorias")
-    List<GeneralCategorias> selectAllWords();
+    List<GeneralCategoriasTable> selectAllEntries();
 
-    @Query("select * from general_categorias where idPalabra = :idPalabra")
-    GeneralCategorias selectWordById(int idPalabra);
+    @Query("select * from general_categorias where ID = :ID")
+    GeneralCategoriasTable selectEntryById(int ID);
 }

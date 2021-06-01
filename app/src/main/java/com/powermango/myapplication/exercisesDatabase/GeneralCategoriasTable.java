@@ -5,25 +5,25 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "general_categorias")
-public class GeneralCategorias {
+public class GeneralCategoriasTable {
     @PrimaryKey(autoGenerate = true)
-    private int idPalabra;
+    private int ID;
     @NonNull
     private String palabra;
     @NonNull
     private String valor;
 
-    public GeneralCategorias(String palabra, String valor) {
+    public GeneralCategoriasTable(String palabra, String valor) {
         this.palabra = palabra;
         this.valor = valor;
     }
 
-    public int getIdPalabra() {
-        return idPalabra;
+    public int getID() {
+        return ID;
     }
 
-    public void setIdPalabra(int idPalabra) {
-        this.idPalabra = idPalabra;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getPalabra() {

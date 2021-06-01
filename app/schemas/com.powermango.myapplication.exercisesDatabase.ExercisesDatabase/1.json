@@ -2,15 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a54cc9d93fb983181575816afca0da15",
+    "identityHash": "d506a54064a9d6cadb9dc8f942d43c05",
     "entities": [
       {
         "tableName": "general_categorias",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPalabra` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `valor` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `valor` TEXT NOT NULL)",
         "fields": [
           {
-            "fieldPath": "idPalabra",
-            "columnName": "idPalabra",
+            "fieldPath": "ID",
+            "columnName": "ID",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -29,7 +29,209 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "idPalabra"
+            "ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "general_definiciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `concepto` TEXT NOT NULL, `definicion` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "concepto",
+            "columnName": "concepto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "definicion",
+            "columnName": "definicion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "diptongo_hiato",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `diptongo_hiato` TEXT NOT NULL, `formado_por` TEXT NOT NULL, `tilde_en` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "palabra",
+            "columnName": "palabra",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "diptongo_hiato",
+            "columnName": "diptongo_hiato",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formado_por",
+            "columnName": "formado_por",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tilde_en",
+            "columnName": "tilde_en",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "especiales_interrogativos_exclamativos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oracion` TEXT NOT NULL, `opcion1` TEXT NOT NULL, `opcion2` TEXT NOT NULL, `opcion_correcta` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oracion",
+            "columnName": "oracion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion1",
+            "columnName": "opcion1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion2",
+            "columnName": "opcion2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion_correcta",
+            "columnName": "opcion_correcta",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "especiales_monosilabos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oracion` TEXT NOT NULL, `opcion1` TEXT NOT NULL, `opcion2` TEXT NOT NULL, `opcion_correcta` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oracion",
+            "columnName": "oracion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion1",
+            "columnName": "opcion1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion2",
+            "columnName": "opcion2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "opcion_correcta",
+            "columnName": "opcion_correcta",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "integrador",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `lleva_tilde` INTEGER NOT NULL, `posicion` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ID",
+            "columnName": "ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "palabra",
+            "columnName": "palabra",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lleva_tilde",
+            "columnName": "lleva_tilde",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "posicion",
+            "columnName": "posicion",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ID"
           ],
           "autoGenerate": true
         },
@@ -40,7 +242,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a54cc9d93fb983181575816afca0da15')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd506a54064a9d6cadb9dc8f942d43c05')"
     ]
   }
 }
