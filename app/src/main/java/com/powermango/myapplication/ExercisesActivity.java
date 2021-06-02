@@ -55,7 +55,7 @@ public class ExercisesActivity extends AppCompatActivity {
                     //exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_2:
-                    exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
+                    //exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
                     break;
                 case DIPTONGO_HIATO:
                     exercises.add(EjercicioDiptongoHiatoFragment.newInstance("", ""));

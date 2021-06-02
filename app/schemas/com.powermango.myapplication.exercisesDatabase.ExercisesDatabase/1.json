@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d506a54064a9d6cadb9dc8f942d43c05",
+    "identityHash": "8dc6b0a198869742eb8e813976d5ab2a",
     "entities": [
       {
         "tableName": "general_categorias",
@@ -70,7 +70,7 @@
       },
       {
         "tableName": "diptongo_hiato",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `diptongo_hiato` TEXT NOT NULL, `formado_por` TEXT NOT NULL, `tilde_en` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `diptongo_hiato` TEXT NOT NULL, `formado_por` TEXT NOT NULL, `tilde_opcion1` TEXT NOT NULL, `tilde_opcion2` TEXT NOT NULL, `tilde_opcion3` TEXT NOT NULL, `tilde_opcion_correcta` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "ID",
@@ -97,8 +97,26 @@
             "notNull": true
           },
           {
-            "fieldPath": "tilde_en",
-            "columnName": "tilde_en",
+            "fieldPath": "tilde_opcion1",
+            "columnName": "tilde_opcion1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tilde_opcion2",
+            "columnName": "tilde_opcion2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tilde_opcion3",
+            "columnName": "tilde_opcion3",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tilde_opcion_correcta",
+            "columnName": "tilde_opcion_correcta",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -242,7 +260,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd506a54064a9d6cadb9dc8f942d43c05')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8dc6b0a198869742eb8e813976d5ab2a')"
     ]
   }
 }

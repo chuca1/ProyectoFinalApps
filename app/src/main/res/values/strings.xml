@@ -58,14 +58,11 @@
     <string name="diptongo_hiato_lleva_tilde_en">Lleva tilde en:</string>
     <string name="diptongo_hiato_diptongo">Diptongo</string>
     <string name="diptongo_hiato_hiato">Hiato</string>
-    <string-array name="diptongo_hiato_diptongo_respuestas">
+    <string-array name="diptongo_hiato_formado_por_respuestas">
+        <item>Dos vocales fuertes</item>
         <item>Vocal fuerte y vocal débil</item>
         <item>Vocal débil y vocal fuerte</item>
         <item>Dos vocales débiles</item>
-    </string-array>
-    <string-array name="diptongo_hiato_hiato_respuestas">
-        <item>Vocales juntas en sílabas distintas</item>
-        <item>Vocales juntas en misma sílaba</item>
     </string-array>
 
     <string name="especiales_prompt">Selecciona la palabra con o sin tilde según lo indique el contexto:</string>
