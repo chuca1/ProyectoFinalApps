@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,12 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+import com.powermango.myapplication.exercisesDatabase.GeneralDefinicionesTable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,10 +39,14 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+    ExercisesDatabase database;
+    GeneralDefinicionesTable entry;
 
     TextView textViewPrompt;
     RadioGroup radioGroupRespuestas;
     Button submitButton;
+
+    RadioButton previousRadioButton;
 
     public EjercicioGeneralDefiniciones1Fragment() {
         // Required empty public constructor
@@ -69,6 +77,8 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        database = ExercisesDatabase.getInstance(getContext());
     }
 
     @Override
@@ -81,26 +91,46 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //Toast.makeText(getContext(), "El fragmento se ha creado", Toast.LENGTH_SHORT).show();
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
 
         textViewPrompt = getView().findViewById(R.id.textViewPrompt);
         radioGroupRespuestas = getView().findViewById(R.id.radioGroupRespuestas);
+        previousRadioButton = null;
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
+        int tempId = viewModel.generateRandomInt(database.getGeneralCategoriasDao().selectCountAll());
+        entry = database.getGeneralDefinicionesDao().selectEntryById(tempId);
+
+        // Debug
+        entry = new GeneralDefinicionesTable("Agudas", "Cuando terminan en N, S o vocal");
+
+        // Set prompt text
+        String definicion = entry.getDefinicion().substring(0, 1).toLowerCase() + entry.getDefinicion().substring(1);
+        String promptText = getString(R.string.general_definiciones_1_prompt) + " " + definicion + ":";
+        textViewPrompt.setText(promptText);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                int radioButtonID = respuestas.getCheckedRadioButtonId();
-//                if (radioButtonID == R.id.radioButtonGraves){
-
+                if (evaluarEjercicio())
                     viewModel.nextFragment();
-//                } else {
-//                    Toast.makeText(getContext(), "Checa bien tus respuestas", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
+    }
+
+    private boolean evaluarEjercicio() {
+        if (previousRadioButton != null)
+            previousRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
+
+        RadioButton currentRadioButton = getView().findViewById(radioGroupRespuestas.getCheckedRadioButtonId());
+
+        if (!entry.getConcepto().equals(currentRadioButton.getText().toString()))
+        {
+            currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+            previousRadioButton = currentRadioButton;
+            return false;
+        }
+
+        return true;
     }
 }

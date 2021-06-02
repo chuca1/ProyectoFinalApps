@@ -52,6 +52,7 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
     ExercisesViewModel viewModel;
     ExercisesDatabase database;
     TextView[] palabras;
+    Spinner[] spinners;
     Spinner spinner1, spinner2, spinner3, spinner4;
     Button submitButton;
 
@@ -105,25 +106,27 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
         entries = new GeneralCategoriasTable[NUMBER_OF_EXERCISES];
         palabras = new TextView[NUMBER_OF_EXERCISES];
+        spinners = new Spinner[NUMBER_OF_EXERCISES];
         respuestas = new String[NUMBER_OF_EXERCISES];
 
         // TextView initialization
-        palabras[0] = ((TextView) getView().findViewById(R.id.palabra1));
-        palabras[1] = ((TextView) getView().findViewById(R.id.palabra2));
-        palabras[2] = ((TextView) getView().findViewById(R.id.palabra3));
-        palabras[3] = ((TextView) getView().findViewById(R.id.palabra4));
+        palabras[0] = (TextView) getView().findViewById(R.id.palabra1);
+        palabras[1] = (TextView) getView().findViewById(R.id.palabra2);
+        palabras[2] = (TextView) getView().findViewById(R.id.palabra3);
+        palabras[3] = (TextView) getView().findViewById(R.id.palabra4);
 
         // Spinner initialization
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.general_categorias_respuestas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1 = getView().findViewById(R.id.spinner1);
-        spinner1.setAdapter(adapter);
-        spinner2 = getView().findViewById(R.id.spinner2);
-        spinner2.setAdapter(adapter);
-        spinner3 = getView().findViewById(R.id.spinner3);
-        spinner3.setAdapter(adapter);
-        spinner4 = getView().findViewById(R.id.spinner4);
-        spinner4.setAdapter(adapter);
+
+        spinners[0] = (Spinner) getView().findViewById(R.id.spinner1);
+        spinners[0].setAdapter(adapter);
+        spinners[1] = (Spinner) getView().findViewById(R.id.spinner2);
+        spinners[1].setAdapter(adapter);
+        spinners[2] = (Spinner) getView().findViewById(R.id.spinner3);
+        spinners[2].setAdapter(adapter);
+        spinners[3] = (Spinner) getView().findViewById(R.id.spinner4);
+        spinners[3].setAdapter(adapter);
 
         // Button initialization
         submitButton = getView().findViewById(R.id.buttonSubmit);
@@ -151,12 +154,6 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get selected answers
-                respuestas[0] = spinner1.getSelectedItem().toString();
-                respuestas[1] = spinner2.getSelectedItem().toString();
-                respuestas[2] = spinner3.getSelectedItem().toString();
-                respuestas[3] = spinner4.getSelectedItem().toString();
-
                 if (evaluarEjercicio())
                     viewModel.nextFragment();
             }
@@ -167,6 +164,8 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         int correctCount = 0;
 
         for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
+            // Get selected answers
+            respuestas[i] = spinners[i].getSelectedItem().toString();
             Log.i("info", "Valor entrada: " + entries[i].getValor());
             Log.i("info", "Valor respuesta: " + respuestas[i]);
 
@@ -175,7 +174,6 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
                 correctCount++;
             }
             else {
-                Log.i("info", "No son iguales");
                 palabras[i].setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
             }
         }
