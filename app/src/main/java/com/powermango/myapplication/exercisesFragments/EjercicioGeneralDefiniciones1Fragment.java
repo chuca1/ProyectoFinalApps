@@ -124,8 +124,7 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
 
         RadioButton currentRadioButton = getView().findViewById(radioGroupRespuestas.getCheckedRadioButtonId());
 
-        if (!entry.getConcepto().equals(currentRadioButton.getText().toString()))
-        {
+        if (!entry.getConcepto().equals(currentRadioButton.getText().toString())) {
             currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
             previousRadioButton = currentRadioButton;
             return false;

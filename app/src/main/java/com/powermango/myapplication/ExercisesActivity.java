@@ -49,10 +49,10 @@ public class ExercisesActivity extends AppCompatActivity {
 
             switch (exerciseType) {
                 case GENERAL_CATEGORIAS:
-                    exercises.add(EjercicioGeneralCategoriasFragment.newInstance("", ""));
+                    //exercises.add(EjercicioGeneralCategoriasFragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_1:
-                    exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
+                    //exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_2:
                     exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
