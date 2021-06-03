@@ -97,13 +97,13 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
 
         entries = new EspecialesInterrogativosExclamativosTable[NUMBER_OF_EXERCISES];
 
-        //int tempId = viewModel.generateRandomInt(database.getEspecialesInterrogativosExclamativosDao().selectCountAll());
-        //entries[0] = database.getEspecialesInterrogativosExclamativosDao().selectEntryById(tempId);
-        //tempId = viewModel.generateRandomInt(database.getEspecialesInterrogativosExclamativosDao().selectCountAll());
-        //entries[1] = database.getEspecialesInterrogativosExclamativosDao().selectEntryById(tempId);
+        int tempId = viewModel.generateRandomInt(database.getEspecialesInterrogativosExclamativosDao().selectCountAll());
+        entries[0] = database.getEspecialesInterrogativosExclamativosDao().selectEntryById(tempId);
+        tempId = viewModel.generateRandomInt(database.getEspecialesInterrogativosExclamativosDao().selectCountAll());
+        entries[1] = database.getEspecialesInterrogativosExclamativosDao().selectEntryById(tempId);
 
-        entries[0] = new EspecialesInterrogativosExclamativosTable("Hola mundo", "Que", "Qué", "Que");
-        entries[1] = new EspecialesInterrogativosExclamativosTable("Hello world", "Cómo", "Como", "Cómo");
+        //entries[0] = new EspecialesInterrogativosExclamativosTable("Hola mundo", "Que", "Qué", "Que");
+        //entries[1] = new EspecialesInterrogativosExclamativosTable("Hello world", "Cómo", "Como", "Cómo");
 
         textViewOracion1.setText(entries[0].getOracion());
         textViewOracion2.setText(entries[1].getOracion());

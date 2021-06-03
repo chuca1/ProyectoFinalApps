@@ -98,13 +98,13 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
 
         entries = new EspecialesMonosilabosTable[NUMBER_OF_EXERCISES];
 
-        //int tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
-        //entries[0] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
-        //tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
-        //entries[1] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
+        int tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
+        entries[0] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
+        tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
+        entries[1] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
 
-        entries[0] = new EspecialesMonosilabosTable("Hola mundo", "Que", "Qué", "Que");
-        entries[1] = new EspecialesMonosilabosTable("Hello world", "Cómo", "Como", "Cómo");
+        //entries[0] = new EspecialesMonosilabosTable("Hola mundo", "Que", "Qué", "Que");
+        //entries[1] = new EspecialesMonosilabosTable("Hello world", "Cómo", "Como", "Cómo");
 
         textViewOracion1.setText(entries[0].getOracion());
         textViewOracion2.setText(entries[1].getOracion());
