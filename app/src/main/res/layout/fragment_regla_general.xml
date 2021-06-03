@@ -12,13 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="@string/lecciones_btn"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:layout_gravity="center"
-            android:gravity="center"/>
+
 
         <TextView
             android:id="@+id/tvLecDescTitle"
@@ -45,7 +39,7 @@
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:text="@string/dummy_text"
-                android:textSize="15sp" />
+                android:textSize="18dp" />
 
         </ScrollView>
 
