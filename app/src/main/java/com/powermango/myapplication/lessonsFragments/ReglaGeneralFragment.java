@@ -1,5 +1,7 @@
 package com.powermango.myapplication.lessonsFragments;
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,41 +15,30 @@ import android.widget.TextView;
 
 import com.powermango.myapplication.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ReglaGeneralFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ReglaGeneralFragment extends Fragment {
     TextView title;
     TextView desc;
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    String TEXT_FONT = "fonts/Montserrat-SemiBold.ttf";
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    Context context;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
 
     public ReglaGeneralFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ReglaGeneralFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static ReglaGeneralFragment newInstance(String param1, String param2) {
         ReglaGeneralFragment fragment = new ReglaGeneralFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,8 +47,7 @@ public class ReglaGeneralFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -66,6 +56,8 @@ public class ReglaGeneralFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         title = view.findViewById(R.id.tvLecDescTitle);
         desc = view.findViewById(R.id.txtDescrip);
+        title.setTypeface(Typeface.createFromAsset(context.getAssets(),TITLE_FONT));
+        desc.setTypeface(Typeface.createFromAsset(context.getAssets(),TEXT_FONT));
         desc.setText(getString(R.string.reglageneral_desc));
         title.setText(getString(R.string.reglageneral_titulo));
     }

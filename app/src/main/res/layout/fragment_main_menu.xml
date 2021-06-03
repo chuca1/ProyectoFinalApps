@@ -16,21 +16,23 @@
             android:layout_width="185dp"
             android:layout_height="50dp"
 
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/pager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.08"
+            app:layout_constraintVertical_bias="0.251"
             app:srcCompat="@drawable/logoprovi" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager"
-            android:layout_width="257dp"
-            android:layout_height="298dp"
+            android:layout_width="316dp"
+            android:layout_height="535dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

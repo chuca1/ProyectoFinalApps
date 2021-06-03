@@ -22,9 +22,10 @@
 
     <Button
         android:id="@+id/buttonReglaGeneral"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/button_regla_general"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,7 @@
 
     <Button
         android:id="@+id/buttonDiptongoHiato"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/button_diptongo_hiato"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +45,7 @@
 
     <Button
         android:id="@+id/buttonCasosEspeciales"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="@string/button_casos_especiales"
         app:layout_constraintBottom_toBottomOf="parent"

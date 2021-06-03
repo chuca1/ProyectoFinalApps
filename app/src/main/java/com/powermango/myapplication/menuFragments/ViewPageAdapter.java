@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -39,6 +40,7 @@ public class ViewPageAdapter extends RecyclerView.Adapter<ViewPageAdapter.ViewHo
         switch (position){
             case 0:{
                 holder.btn.setImageResource(R.drawable.book);
+                holder.tvOption.setText("Lecciones");
                 holder.btn.setOnClickListener(viewl -> {
                     navC.navigate(R.id.action_mainMenu_to_leccionesFrag);
                 });
@@ -46,6 +48,7 @@ public class ViewPageAdapter extends RecyclerView.Adapter<ViewPageAdapter.ViewHo
             }
             case 1:{
                 holder.btn.setImageResource(R.drawable.training);
+                holder.tvOption.setText("Practicar");
                 holder.btn.setOnClickListener(viewl -> {
                     navC.navigate(R.id.action_mainMenu_to_menuEjercicios);
                 });
@@ -63,11 +66,11 @@ public class ViewPageAdapter extends RecyclerView.Adapter<ViewPageAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageButton btn;
-
+        TextView tvOption;
         ViewHolder(View itemView) {
             super(itemView);
             btn = itemView.findViewById(R.id.LeccImageButton);
-
+            tvOption = itemView.findViewById(R.id.tvOption);
 
         }
     }
