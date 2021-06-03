@@ -1,6 +1,8 @@
 package com.powermango.myapplication.menuFragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.powermango.myapplication.ExercisesActivity;
 import com.powermango.myapplication.MainActivity;
@@ -26,6 +29,15 @@ public class menuEjercicios extends Fragment {
 
     Button modoClas;
     Button modoContraT;
+    String BUTTON_FONT = "fonts/Montserrat-Regular.ttf";
+    String TITLE_FONT = "fonts/Montserrat-Light.ttf";
+    Context context;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +52,10 @@ public class menuEjercicios extends Fragment {
 
         modoClas = view.findViewById(R.id.bEjerciciosNormal);
         modoContraT = view.findViewById(R.id.bContraTiempo);
-
+        TextView titulo = view.findViewById(R.id.tvTituloMenuEjercios);
+        titulo.setTypeface(Typeface.createFromAsset(context.getAssets(),TITLE_FONT));
+        modoClas.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
+        modoContraT.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
         modoClas.setOnClickListener(viewl -> {
             startExercises();
         });

@@ -18,19 +18,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingVertical="10dp">
 
         <Button
             android:id="@+id/bEjerciciosNormal"
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:gravity="center"
+            android:layout_marginVertical="25dp"
             android:layout_height="wrap_content"
             android:text="@string/modo_cl_sico_btn" />
 
         <Button
             android:id="@+id/bContraTiempo"
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:gravity="center"
+            android:layout_marginVertical="25dp"
             android:layout_height="wrap_content"
             android:text="@string/modo_contratiempo_btn" />
     </LinearLayout>
