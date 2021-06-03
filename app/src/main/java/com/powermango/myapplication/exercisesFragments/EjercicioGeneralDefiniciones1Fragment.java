@@ -98,11 +98,11 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
         previousRadioButton = null;
         submitButton = getView().findViewById(R.id.buttonSubmit);
 
-        int tempId = viewModel.generateRandomInt(database.getGeneralCategoriasDao().selectCountAll());
+        int tempId = viewModel.generateRandomInt(database.getGeneralDefinicionesDao().selectCountAll());
         entry = database.getGeneralDefinicionesDao().selectEntryById(tempId);
 
         // Debug
-        entry = new GeneralDefinicionesTable("Agudas", "Cuando terminan en N, S o vocal");
+        //entry = new GeneralDefinicionesTable("Agudas", "Cuando terminan en N, S o vocal");
 
         // Set prompt text
         String definicion = entry.getDefinicion().substring(0, 1).toLowerCase() + entry.getDefinicion().substring(1);
@@ -130,6 +130,7 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
             return false;
         }
 
+        currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
         return true;
     }
 }

@@ -1,6 +1,7 @@
 package com.powermango.myapplication.exercisesDatabase;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -11,11 +12,11 @@ public class GeneralCategoriasTable {
     @NonNull
     private String palabra;
     @NonNull
-    private String valor;
+    private String categoria;
 
-    public GeneralCategoriasTable(String palabra, String valor) {
+    public GeneralCategoriasTable(@NonNull String palabra, @NonNull String categoria) {
         this.palabra = palabra;
-        this.valor = valor;
+        this.categoria = categoria;
     }
 
     public int getID() {
@@ -26,19 +27,21 @@ public class GeneralCategoriasTable {
         this.ID = ID;
     }
 
+    @NonNull
     public String getPalabra() {
         return palabra;
     }
 
-    public void setPalabra(String palabra) {
+    public void setPalabra(@NonNull String palabra) {
         this.palabra = palabra;
     }
 
-    public String getValor() {
-        return valor;
+    @NonNull
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public void setCategoria(@NonNull String categoria) {
+        this.categoria = categoria;
     }
 }

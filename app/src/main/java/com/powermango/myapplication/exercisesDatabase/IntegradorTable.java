@@ -1,6 +1,7 @@
 package com.powermango.myapplication.exercisesDatabase;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -11,13 +12,14 @@ public class IntegradorTable {
     @NonNull
     private String palabra;
     @NonNull
-    private int lleva_tilde;
+    @ColumnInfo(name = "lleva_tilde")
+    private int llevaTilde;
     @NonNull
     private int posicion;
 
-    public IntegradorTable(@NonNull String palabra, int lleva_tilde, int posicion) {
+    public IntegradorTable(@NonNull String palabra, int llevaTilde, int posicion) {
         this.palabra = palabra;
-        this.lleva_tilde = lleva_tilde;
+        this.llevaTilde = llevaTilde;
         this.posicion = posicion;
     }
 
@@ -38,12 +40,12 @@ public class IntegradorTable {
         this.palabra = palabra;
     }
 
-    public int getLleva_tilde() {
-        return lleva_tilde;
+    public int getLlevaTilde() {
+        return llevaTilde;
     }
 
-    public void setLleva_tilde(int lleva_tilde) {
-        this.lleva_tilde = lleva_tilde;
+    public void setLlevaTilde(int llevaTilde) {
+        this.llevaTilde = llevaTilde;
     }
 
     public int getPosicion() {

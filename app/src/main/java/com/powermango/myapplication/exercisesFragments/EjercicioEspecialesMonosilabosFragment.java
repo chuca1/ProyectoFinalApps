@@ -10,12 +10,16 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
+import com.powermango.myapplication.exercisesDatabase.EspecialesInterrogativosExclamativosTable;
+import com.powermango.myapplication.exercisesDatabase.EspecialesMonosilabosTable;
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,7 @@ import com.powermango.myapplication.R;
  * create an instance of this fragment.
  */
 public class EjercicioEspecialesMonosilabosFragment extends Fragment {
+    private static final int NUMBER_OF_EXERCISES = 2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +39,8 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+    ExercisesDatabase database;
+    EspecialesMonosilabosTable[] entries;
 
     TextView textViewOracion1, textViewOracion2;
     Spinner spinner1, spinner2;
@@ -68,6 +75,8 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        database = ExercisesDatabase.getInstance(getContext());
     }
 
     @Override
@@ -85,15 +94,59 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
 
         textViewOracion1 = getView().findViewById(R.id.textViewOracion1);
         textViewOracion2 = getView().findViewById(R.id.textViewOracion2);
-        spinner1 = getView().findViewById(R.id.spinner1);
-        spinner2 = getView().findViewById(R.id.spinner2);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        entries = new EspecialesMonosilabosTable[NUMBER_OF_EXERCISES];
+
+        //int tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
+        //entries[0] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
+        //tempId = viewModel.generateRandomInt(database.getEspecialesMonosilabosDao().selectCountAll());
+        //entries[1] = database.getEspecialesMonosilabosDao().selectEntryById(tempId);
+
+        entries[0] = new EspecialesMonosilabosTable("Hola mundo", "Que", "Qué", "Que");
+        entries[1] = new EspecialesMonosilabosTable("Hello world", "Cómo", "Como", "Cómo");
+
+        textViewOracion1.setText(entries[0].getOracion());
+        textViewOracion2.setText(entries[1].getOracion());
+
+        String[] array1 = {entries[0].getOpcion1(), entries[0].getOpcion2()};
+        String[] array2 = {entries[1].getOpcion1(), entries[1].getOpcion2()};
+
+        spinner1 = getView().findViewById(R.id.spinner1);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, array1);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
+
+        spinner2 = getView().findViewById(R.id.spinner2);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, array2);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewModel.nextFragment();
+                if (evaluarEjercicio()) {
+                    viewModel.updateScoreBy1();
+                    viewModel.nextFragment();
+                }
             }
         });
+    }
+
+    private boolean evaluarEjercicio() {
+        int score = 0;
+        String respuesta1 = spinner1.getSelectedItem().toString();
+        String respuesta2 = spinner2.getSelectedItem().toString();
+
+        if (respuesta1.equals(entries[0].getOpcionCorrecta())) {
+            score++;
+        }
+
+        if (respuesta2.equals(entries[1].getOpcionCorrecta())) {
+            score++;
+        }
+
+        return (score == NUMBER_OF_EXERCISES);
     }
 }

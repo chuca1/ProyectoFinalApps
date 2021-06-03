@@ -35,8 +35,6 @@ public class MainMenu extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         // PRUEBA PARA VER SI BASE DE DATOS FUNCIONA
-        database = ExercisesDatabase.getInstance(getContext());
-        database.getGeneralCategoriasDao().selectAllEntries();
         // PRUEBA PARA VER SI BASE DE DATOS FUNCIONA
         navController = Navigation.findNavController(view);
         //menuLec = view.findViewById(R.id.btnLecciones);

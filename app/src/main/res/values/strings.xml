@@ -16,8 +16,8 @@
     <string name="button_diptongo_hiato">Diptongo y hiato</string>
     <string name="button_casos_especiales">Casos especiales</string>
 
-
     <string name="button_submit">Enviar</string>
+    <string name="button_finish">Finalizar</string>
 
     <string name="general_categorias_pregunta">Selecciona la categoría a la que pertenece cada palabra</string>
     <string name="general_categorias_palabra_1">Árbol</string>
@@ -77,6 +77,8 @@
         <item>Penúltima</item>
         <item>Antepenúltima</item>
     </string-array>
+
+    <string name="score_prompt">Tu puntaje fue de:</string>
 
     <string name="title_activity_lessons">LessonsActivity</string>
     <!-- Strings used for fragments for navigation -->

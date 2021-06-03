@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ExercisesViewModel extends ViewModel {
@@ -42,6 +43,8 @@ public class ExercisesViewModel extends ViewModel {
     public void updateScoreBy1() {setScore(getScore() + 1);}
 
     public int generateRandomInt(int max) {
-        return ThreadLocalRandom.current().nextInt(1, max + 1);
+        int random = new Random().nextInt(max) + 1;
+        return random;
+        //return ThreadLocalRandom.current().nextInt(1, max + 1);
     }
 }

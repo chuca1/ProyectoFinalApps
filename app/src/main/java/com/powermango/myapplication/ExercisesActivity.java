@@ -18,6 +18,7 @@ import com.powermango.myapplication.exercisesFragments.EjercicioGeneralCategoria
 import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones1Fragment;
 import com.powermango.myapplication.exercisesFragments.EjercicioGeneralDefiniciones2Fragment;
 import com.powermango.myapplication.exercisesFragments.EjercicioIntegradorTildePosFragment;
+import com.powermango.myapplication.exercisesFragments.ScoreFragment;
 
 import static com.powermango.myapplication.Constants.*;
 
@@ -49,16 +50,16 @@ public class ExercisesActivity extends AppCompatActivity {
 
             switch (exerciseType) {
                 case GENERAL_CATEGORIAS:
-                    //exercises.add(EjercicioGeneralCategoriasFragment.newInstance("", ""));
+                    exercises.add(EjercicioGeneralCategoriasFragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_1:
-                    //exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
+                    exercises.add(EjercicioGeneralDefiniciones1Fragment.newInstance("", ""));
                     break;
                 case GENERAL_DEFINICIONES_2:
-                    //exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
+                    exercises.add(EjercicioGeneralDefiniciones2Fragment.newInstance("", ""));
                     break;
                 case DIPTONGO_HIATO:
-                    //exercises.add(EjercicioDiptongoHiatoFragment.newInstance("", ""));
+                    exercises.add(EjercicioDiptongoHiatoFragment.newInstance("", ""));
                     break;
                 case ESPECIALES_INTERROGATIVOS_EXCLAMATIVOS:
                     exercises.add(EjercicioEspecialesInteExclaFragment.newInstance("", ""));
@@ -67,7 +68,8 @@ public class ExercisesActivity extends AppCompatActivity {
                     exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
                     break;
                 case INTEGRADOR:
-                    exercises.add(EjercicioIntegradorTildePosFragment.newInstance("", ""));
+                    exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
+                    //exercises.add(EjercicioIntegradorTildePosFragment.newInstance("", ""));
                     break;
             }
         }
@@ -81,11 +83,21 @@ public class ExercisesActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer);
 
-                if (fragment == null) {
-                    fragmentTransaction.add(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                if (currentFragment < EXERCISES_ARRAY_SIZE) {
+                    if (fragment == null) {
+                        fragmentTransaction.add(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                    }
+                    else {
+                        fragmentTransaction.replace(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                    }
                 }
                 else {
-                    fragmentTransaction.replace(R.id.fragmentContainer, exercises.get(currentFragment)).commit();
+                    if (fragment == null) {
+                        fragmentTransaction.add(R.id.fragmentContainer, ScoreFragment.newInstance("", "")).commit();
+                    }
+                    else {
+                        fragmentTransaction.replace(R.id.fragmentContainer, ScoreFragment.newInstance("", "")).commit();
+                    }
                 }
             }
         });

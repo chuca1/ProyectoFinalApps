@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -44,6 +45,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
 
     TextView textViewPalabra;
     RadioGroup radioGroupDiptongoHiato;
+    RadioButton previousRadioButton;
     Spinner spinnerFormadoPor, spinnerTildeEn;
     Button buttonSubmit;
 
@@ -94,13 +96,14 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
 
         textViewPalabra = getView().findViewById(R.id.textViewPalabra);
         radioGroupDiptongoHiato = getView().findViewById(R.id.radioGroupDiptongoHiato);
+        previousRadioButton = null;
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
 
         // Randomly selected entry
-        //int tempId = viewModel.generateRandomInt(database.getDiptongoHiatoDao().selectCountAll());
-        //entry = database.getDiptongoHiatoDao().selectEntryById(tempId);
+        int tempId = viewModel.generateRandomInt(database.getDiptongoHiatoDao().selectCountAll());
+        entry = database.getDiptongoHiatoDao().selectEntryById(tempId);
 
-        entry = new DiptongoHiatoTable("Hola", "Diptongo", "FF", "O", "A", "No lleva tilde", "No lleva tilde");
+        //entry = new DiptongoHiatoTable("Hola", "Diptongo", "FF", "O", "A", "No lleva tilde", "No lleva tilde");
 
         textViewPalabra.setText(entry.getPalabra());
 
@@ -128,13 +131,24 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
     }
 
     private boolean evaluarEjercicio() {
+        if (previousRadioButton != null)
+            previousRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
+
         RadioButton buttonDiptongoHiato = (RadioButton) getView().findViewById(radioGroupDiptongoHiato.getCheckedRadioButtonId());
+        if (buttonDiptongoHiato == null)
+            return false;
+
         String diptongoHiato = buttonDiptongoHiato.getText().toString();
         String formadoPor = spinnerFormadoPor.getSelectedItem().toString();
         String tildeEn = spinnerTildeEn.getSelectedItem().toString();
 
         if (!diptongoHiato.equals(entry.getDiptongoHiato()))
+        {
+            buttonDiptongoHiato.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+            previousRadioButton = buttonDiptongoHiato;
             return false;
+        }
+
 
         switch (entry.getFormadoPor()) {
             case "FF":
@@ -158,6 +172,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         if (!tildeEn.equals(entry.getTildeOpcionCorrecta()))
             return false;
 
+        buttonDiptongoHiato.setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
         return true;
     }
 }

@@ -135,18 +135,19 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         for (int i = 0, size = database.getGeneralCategoriasDao().selectCountAll(); i < NUMBER_OF_EXERCISES; i++) {
             int tempId = viewModel.generateRandomInt(size);
             entries[i] = database.getGeneralCategoriasDao().selectEntryById(tempId);
+            palabras[i].setText(entries[i].getPalabra());
         }
 
         // Debug: manual entries
-        entries[0] = new GeneralCategoriasTable("palabra1", "Aguda");
-        entries[1] = new GeneralCategoriasTable("palabra2", "Grave");
-        entries[2] = new GeneralCategoriasTable("palabra3", "Esdrújula");
-        entries[3] = new GeneralCategoriasTable("palabra4", "Sobreesdrújula");
+        //entries[0] = new GeneralCategoriasTable("palabra1", "Aguda");
+        //entries[1] = new GeneralCategoriasTable("palabra2", "Grave");
+        //entries[2] = new GeneralCategoriasTable("palabra3", "Esdrújula");
+        //entries[3] = new GeneralCategoriasTable("palabra4", "Sobreesdrújula");
 
         // Fill TextViews
-        for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
-            palabras[i].setText(entries[i].getPalabra());
-        }
+//        for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
+//            palabras[i].setText(entries[i].getPalabra());
+//        }
 
         // Fill answers with default text value
         Arrays.fill(respuestas, Constants.DEFAULT_TEXT_VALUE);
@@ -155,7 +156,11 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (evaluarEjercicio())
+                {
+                    viewModel.updateScoreBy1();
                     viewModel.nextFragment();
+                }
+
             }
         });
     }
@@ -166,10 +171,10 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         for (int i = 0; i < NUMBER_OF_EXERCISES; i++) {
             // Get selected answers
             respuestas[i] = spinners[i].getSelectedItem().toString();
-            Log.i("info", "Valor entrada: " + entries[i].getValor());
+            Log.i("info", "Valor entrada: " + entries[i].getCategoria());
             Log.i("info", "Valor respuesta: " + respuestas[i]);
 
-            if (respuestas[i].equals(entries[i].getValor())) {
+            if (respuestas[i].equals(entries[i].getCategoria())) {
                 palabras[i].setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
                 correctCount++;
             }

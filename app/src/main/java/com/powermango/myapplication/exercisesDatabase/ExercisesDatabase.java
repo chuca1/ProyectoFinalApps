@@ -13,7 +13,7 @@ import androidx.room.RoomDatabase;
         DiptongoHiatoTable.class,
         EspecialesInterrogativosExclamativosTable.class,
         EspecialesMonosilabosTable.class,
-        IntegradorTable.class
+        //IntegradorTable.class
     }, version = 1)
 public abstract class ExercisesDatabase extends RoomDatabase {
     // Definir Dao
@@ -22,7 +22,7 @@ public abstract class ExercisesDatabase extends RoomDatabase {
     public abstract DiptongoHiatoDao getDiptongoHiatoDao();
     public abstract EspecialesInterrogativosExclamativosDao getEspecialesInterrogativosExclamativosDao();
     public abstract EspecialesMonosilabosDao getEspecialesMonosilabosDao();
-    public abstract IntegradorDao getIntegradorDao();
+    //public abstract IntegradorDao getIntegradorDao();
 
     private static ExercisesDatabase INSTANCE;
 

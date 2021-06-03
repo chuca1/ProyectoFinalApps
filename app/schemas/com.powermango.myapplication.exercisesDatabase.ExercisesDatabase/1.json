@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8dc6b0a198869742eb8e813976d5ab2a",
+    "identityHash": "2e9641caeabce3436e1068ca99dcf410",
     "entities": [
       {
         "tableName": "general_categorias",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `valor` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `categoria` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "ID",
@@ -21,8 +21,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "valor",
-            "columnName": "valor",
+            "fieldPath": "categoria",
+            "columnName": "categoria",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -85,37 +85,37 @@
             "notNull": true
           },
           {
-            "fieldPath": "diptongo_hiato",
+            "fieldPath": "diptongoHiato",
             "columnName": "diptongo_hiato",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "formado_por",
+            "fieldPath": "formadoPor",
             "columnName": "formado_por",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "tilde_opcion1",
+            "fieldPath": "tildeOpcion1",
             "columnName": "tilde_opcion1",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "tilde_opcion2",
+            "fieldPath": "tildeOpcion2",
             "columnName": "tilde_opcion2",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "tilde_opcion3",
+            "fieldPath": "tildeOpcion3",
             "columnName": "tilde_opcion3",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "tilde_opcion_correcta",
+            "fieldPath": "tildeOpcionCorrecta",
             "columnName": "tilde_opcion_correcta",
             "affinity": "TEXT",
             "notNull": true
@@ -159,7 +159,7 @@
             "notNull": true
           },
           {
-            "fieldPath": "opcion_correcta",
+            "fieldPath": "opcionCorrecta",
             "columnName": "opcion_correcta",
             "affinity": "TEXT",
             "notNull": true
@@ -203,47 +203,9 @@
             "notNull": true
           },
           {
-            "fieldPath": "opcion_correcta",
+            "fieldPath": "opcionCorrecta",
             "columnName": "opcion_correcta",
             "affinity": "TEXT",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "columnNames": [
-            "ID"
-          ],
-          "autoGenerate": true
-        },
-        "indices": [],
-        "foreignKeys": []
-      },
-      {
-        "tableName": "integrador",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `palabra` TEXT NOT NULL, `lleva_tilde` INTEGER NOT NULL, `posicion` INTEGER NOT NULL)",
-        "fields": [
-          {
-            "fieldPath": "ID",
-            "columnName": "ID",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "palabra",
-            "columnName": "palabra",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "lleva_tilde",
-            "columnName": "lleva_tilde",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "posicion",
-            "columnName": "posicion",
-            "affinity": "INTEGER",
             "notNull": true
           }
         ],
@@ -260,7 +222,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8dc6b0a198869742eb8e813976d5ab2a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2e9641caeabce3436e1068ca99dcf410')"
     ]
   }
 }

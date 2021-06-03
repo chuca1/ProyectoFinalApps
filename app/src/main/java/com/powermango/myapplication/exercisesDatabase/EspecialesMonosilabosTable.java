@@ -1,6 +1,7 @@
 package com.powermango.myapplication.exercisesDatabase;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -15,13 +16,14 @@ public class EspecialesMonosilabosTable {
     @NonNull
     private String opcion2;
     @NonNull
-    private String opcion_correcta;
+    @ColumnInfo(name = "opcion_correcta")
+    private String opcionCorrecta;
 
-    public EspecialesMonosilabosTable(@NonNull String oracion, @NonNull String opcion1, @NonNull String opcion2, @NonNull String opcion_correcta) {
+    public EspecialesMonosilabosTable(@NonNull String oracion, @NonNull String opcion1, @NonNull String opcion2, @NonNull String opcionCorrecta) {
         this.oracion = oracion;
         this.opcion1 = opcion1;
         this.opcion2 = opcion2;
-        this.opcion_correcta = opcion_correcta;
+        this.opcionCorrecta = opcionCorrecta;
     }
 
     public int getID() {
@@ -60,11 +62,11 @@ public class EspecialesMonosilabosTable {
     }
 
     @NonNull
-    public String getOpcion_correcta() {
-        return opcion_correcta;
+    public String getOpcionCorrecta() {
+        return opcionCorrecta;
     }
 
-    public void setOpcion_correcta(@NonNull String opcion_correcta) {
-        this.opcion_correcta = opcion_correcta;
+    public void setOpcionCorrecta(@NonNull String opcionCorrecta) {
+        this.opcionCorrecta = opcionCorrecta;
     }
 }

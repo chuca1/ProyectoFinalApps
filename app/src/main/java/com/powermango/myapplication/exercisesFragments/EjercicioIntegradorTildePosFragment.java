@@ -4,19 +4,25 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
+import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+import com.powermango.myapplication.exercisesDatabase.IntegradorTable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +30,11 @@ import com.powermango.myapplication.R;
  * create an instance of this fragment.
  */
 public class EjercicioIntegradorTildePosFragment extends Fragment {
+    private static final int SI = 1;
+    private static final int NO = 0;
+    private static final int ULTIMA = 1;
+    private static final int PENULTIMA = 2;
+    private static final int ANTEPENULTIMA = 3;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,8 +46,14 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
     private String mParam2;
 
     ExercisesViewModel viewModel;
+    ExercisesDatabase database;
+    IntegradorTable entry;
+
     TextView textViewPalabra;
+    TextView textViewLlevaTilde;
+    TextView textViewSilabaQueLoLleva;
     RadioGroup radioGroupTilde;
+    RadioButton previousRadioButton;
     Spinner spinnerSilaba;
     Button buttonSubmit;
 
@@ -69,6 +86,8 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        database = ExercisesDatabase.getInstance(getContext());
     }
 
     @Override
@@ -85,15 +104,91 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);;
 
         textViewPalabra = getView().findViewById(R.id.textViewPalabra);
+        textViewLlevaTilde = getView().findViewById(R.id.textViewLlevaTilde);
+        textViewSilabaQueLoLleva = getView().findViewById(R.id.textViewSilabaQueLoLleva);
         radioGroupTilde = getView().findViewById(R.id.radioGroupTilde);
-        spinnerSilaba = getView().findViewById(R.id.spinnerSilaba);
+        previousRadioButton = null;
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        //int tempId = viewModel.generateRandomInt(database.getIntegradorDao().selectCountAll());
+        //entry = database.getIntegradorDao().selectEntryById(tempId);
+        entry = new IntegradorTable("Hola", 0, 0);
+
+        textViewPalabra.setText(entry.getPalabra());
+
+        spinnerSilaba = getView().findViewById(R.id.spinnerSilaba);
+        ArrayAdapter<CharSequence> adapterSilaba  = ArrayAdapter.createFromResource(getContext(), R.array.integrador_silaba_respuestas, android.R.layout.simple_spinner_item);
+        adapterSilaba.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSilaba.setAdapter(adapterSilaba);
+
+        radioGroupTilde.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.radioButtonSi) {
+                    textViewSilabaQueLoLleva.setVisibility(View.VISIBLE);
+                    spinnerSilaba.setVisibility(View.VISIBLE);
+                }
+                else if (checkedId == R.id.radioButtonNo) {
+                    textViewSilabaQueLoLleva.setVisibility(View.INVISIBLE);
+                    spinnerSilaba.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewModel.nextFragment();
+
+                if (evaluarEjercicio()) {
+                    viewModel.updateScoreBy1();
+                    viewModel.nextFragment();
+                }
             }
         });
+    }
+
+    private boolean evaluarEjercicio() {
+        if (previousRadioButton != null)
+            previousRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
+
+        RadioButton currentRadioButton = getView().findViewById(radioGroupTilde.getCheckedRadioButtonId());
+        String llevaTilde = currentRadioButton.getText().toString();
+        String silaba = spinnerSilaba.getSelectedItem().toString();
+
+        if (entry.getLlevaTilde() == SI) {
+            if (!llevaTilde.equals("Sí")) {
+                currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                return false;
+            }
+
+            switch (entry.getPosicion()) {
+                case NO:
+                    return false;
+                case ULTIMA:
+                    if (!silaba.equals("Última")) {
+                        return false;
+                    }
+                    break;
+                case PENULTIMA:
+                    if (!silaba.equals("Penúltima")) {
+                        return false;
+                    }
+                    break;
+                case ANTEPENULTIMA:
+                    if (!silaba.equals("Antepenúltima")) {
+                        return false;
+                    }
+                        break;
+            }
+        }
+        else if (entry.getLlevaTilde() == NO) {
+            if (!llevaTilde.equals("No")) {
+                Log.i("info", "RadioButton: " + llevaTilde);
+                currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                return false;
+            }
+        }
+
+        return true;
     }
 }
