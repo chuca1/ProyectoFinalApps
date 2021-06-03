@@ -6,12 +6,15 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.MainActivity;
 import com.powermango.myapplication.R;
 
@@ -31,7 +34,10 @@ public class ScoreFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    ExercisesViewModel viewModel;
+
     Button buttonFinish;
+    TextView textViewScore;
 
     public ScoreFragment() {
         // Required empty public constructor
@@ -75,7 +81,11 @@ public class ScoreFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        textViewScore = getView().findViewById(R.id.textViewScore);
         buttonFinish = getView().findViewById(R.id.buttonFinish);
+
+        viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
+        textViewScore.setText(Integer.toString(viewModel.getScore()));
 
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override

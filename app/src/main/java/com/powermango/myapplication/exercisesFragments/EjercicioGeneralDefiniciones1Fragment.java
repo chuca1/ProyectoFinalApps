@@ -112,8 +112,10 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (evaluarEjercicio())
+                if (evaluarEjercicio()) {
+                    viewModel.updateScoreBy1();
                     viewModel.nextFragment();
+                }
             }
         });
     }
