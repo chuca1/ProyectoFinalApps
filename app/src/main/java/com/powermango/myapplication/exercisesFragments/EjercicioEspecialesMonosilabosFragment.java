@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,9 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
     TextView textViewOracion1, textViewOracion2;
     Spinner spinner1, spinner2;
     Button buttonSubmit;
+
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
     public EjercicioEspecialesMonosilabosFragment() {
         // Required empty public constructor
@@ -95,6 +99,10 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
         textViewOracion1 = getView().findViewById(R.id.textViewOracion1);
         textViewOracion2 = getView().findViewById(R.id.textViewOracion2);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        textViewOracion1.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        textViewOracion2.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        buttonSubmit.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
         entries = new EspecialesMonosilabosTable[NUMBER_OF_EXERCISES];
 

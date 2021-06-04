@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,6 +38,8 @@ public class GeneralDiptongo extends Fragment {
 
     public int counter = 60;
     public int palabraNumero = 0;
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
     public String[] palabras = {
             "rocío",
@@ -107,6 +110,13 @@ public class GeneralDiptongo extends Fragment {
         Button diptongo = (Button) getView().findViewById(R.id.diptongo);
         Button hiato = (Button) getView().findViewById(R.id.hiato);
         Button submitButton = (Button) getView().findViewById(R.id.submit);
+
+        timer.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        palabra.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        empezar.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        diptongo.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        hiato.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        submitButton.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         empezar.setOnClickListener(new View.OnClickListener()
         {
             @Override

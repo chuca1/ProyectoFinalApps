@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,9 @@ public class EjercicioGeneralDefiniciones2Fragment extends Fragment {
     Button submitButton;
 
     RadioButton previousRadioButton;
+
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
     public EjercicioGeneralDefiniciones2Fragment() {
         // Required empty public constructor
@@ -98,6 +102,9 @@ public class EjercicioGeneralDefiniciones2Fragment extends Fragment {
         radioGroupRespuestas = getView().findViewById(R.id.radioGroupRespuestas);
         previousRadioButton = null;
         submitButton = getView().findViewById(R.id.buttonSubmit);
+
+        textViewPrompt.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        submitButton.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
         int tempId = viewModel.generateRandomInt(database.getGeneralDefinicionesDao().selectCountAll());
         entry = database.getGeneralDefinicionesDao().selectEntryById(tempId);

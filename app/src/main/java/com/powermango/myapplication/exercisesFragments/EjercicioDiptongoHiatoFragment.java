@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -48,6 +49,9 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
     RadioButton previousRadioButton;
     Spinner spinnerFormadoPor, spinnerTildeEn;
     Button buttonSubmit;
+
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
     public EjercicioDiptongoHiatoFragment() {
         // Required empty public constructor
@@ -99,6 +103,8 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         previousRadioButton = null;
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
 
+        textViewPalabra.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        buttonSubmit.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         // Randomly selected entry
         int tempId = viewModel.generateRandomInt(database.getDiptongoHiatoDao().selectCountAll());
         entry = database.getDiptongoHiatoDao().selectEntryById(tempId);
@@ -115,6 +121,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         String arrayTildeEn[] = {entry.getTildeOpcion1(), entry.getTildeOpcion2(), entry.getTildeOpcion3()};
 
         spinnerTildeEn = getView().findViewById(R.id.spinnerTildeEn);
+
         ArrayAdapter<String> adapterTildeEn = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, arrayTildeEn);
         adapterTildeEn.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTildeEn.setAdapter(adapterTildeEn);
