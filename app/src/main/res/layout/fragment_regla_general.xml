@@ -20,8 +20,15 @@
             android:layout_height="wrap_content"
             android:text="@string/titulo_dummy"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#0090fa"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -35,7 +42,7 @@
                 android:id="@+id/txtDescrip"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:lines="10"
+                android:lines="20"
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:text="@string/dummy_text"

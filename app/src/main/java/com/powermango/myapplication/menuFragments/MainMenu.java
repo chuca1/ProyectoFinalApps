@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.powermango.myapplication.R;
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
@@ -20,6 +21,9 @@ import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 
 public class MainMenu extends Fragment {
     private ExercisesDatabase database;
+    private ImageButton credit;
+    private ImageButton help;
+    private  String TAG_BUND = "MAINIB";
     NavController navController = null;
 
     Button menuLec;
@@ -47,6 +51,20 @@ public class MainMenu extends Fragment {
         menuEje.setOnClickListener(viewl -> {
             navController.navigate(R.id.action_mainMenu_to_menuEjercicios);
         });*/
+        credit = view.findViewById(R.id.ib_credit);
+        credit.setOnClickListener(view1 -> {
+            //Pasar info usando bundles
+            Bundle data = new Bundle();
+            data.putInt(TAG_BUND,1);
+            navController.navigate(R.id.action_mainMenu_to_creditAndHelp,data);
+        });
+        help = view.findViewById(R.id.ib_help);
+        help.setOnClickListener(view1 -> {
+            //Pasar info usando bundles
+            Bundle data = new Bundle();
+            data.putInt(TAG_BUND,2);
+            navController.navigate(R.id.action_mainMenu_to_creditAndHelp,data);
+        });
         viewPage = view.findViewById(R.id.pager);
         viewPage.setAdapter(new ViewPageAdapter(view.getContext(),viewPage,navController));
     }
