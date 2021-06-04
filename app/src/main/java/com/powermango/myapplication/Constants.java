@@ -7,7 +7,7 @@ public final class Constants {
     public static final int DEFAULT_INTEGER_VALUE = 0;
 
     public static final int EXERCISES_ARRAY_SIZE = 7;
-    public static final int EXERCISES_AVAILABLE = 7;
+    public static final int EXERCISES_AVAILABLE = 10;
 
     public enum ExerciseType {
         GENERAL_CATEGORIAS(1), GENERAL_DEFINICIONES_1(2), GENERAL_DEFINICIONES_2(3), DIPTONGO_HIATO(4),

@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ExercisesViewModel extends ViewModel {
     private ExercisesDatabase database;
     private MutableLiveData<Integer> currentFragment;
-    private int score;
+    private double score;
 
     public ExercisesViewModel() {
         currentFragment = new MutableLiveData<>();
@@ -28,15 +28,15 @@ public class ExercisesViewModel extends ViewModel {
         currentFragment.setValue(currentFragment.getValue() + 1);
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
-    public void addScore(int points) {
+    public void addScore(double points) {
         setScore(getScore() + points);
     }
 
