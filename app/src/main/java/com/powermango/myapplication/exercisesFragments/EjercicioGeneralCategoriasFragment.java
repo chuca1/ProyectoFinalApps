@@ -31,6 +31,11 @@ import java.util.List;
 import com.powermango.myapplication.Constants.*;
 import com.powermango.myapplication.exercisesDatabase.GeneralDefinicionesTable;
 
+import static com.powermango.myapplication.Constants.SCORE_DECREMENT;
+import static com.powermango.myapplication.Constants.SCORE_INITIAL;
+import static com.powermango.myapplication.Constants.TOAST_CORRECT_ANSWER;
+import static com.powermango.myapplication.Constants.TOAST_WRONG_ANSWER;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link EjercicioGeneralCategoriasFragment#newInstance} factory method to
@@ -52,12 +57,14 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
     ExercisesViewModel viewModel;
     ExercisesDatabase database;
     TextView[] palabras;
+    TextView textViewScore;
     Spinner[] spinners;
     Spinner spinner1, spinner2, spinner3, spinner4;
     Button submitButton;
 
     GeneralCategoriasTable[] entries;
     String[] respuestas;
+    double score = SCORE_INITIAL;
 
     public EjercicioGeneralCategoriasFragment() {
         // Required empty public constructor
@@ -115,6 +122,10 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         palabras[2] = (TextView) getView().findViewById(R.id.palabra3);
         palabras[3] = (TextView) getView().findViewById(R.id.palabra4);
 
+        // Score holder
+        textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
+        textViewScore.setText(Integer.toString((int) score));
+
         // Spinner initialization
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.general_categorias_respuestas, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -157,10 +168,9 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
             public void onClick(View v) {
                 if (evaluarEjercicio())
                 {
-                    viewModel.updateScoreBy1();
+                    viewModel.addScore(score);
                     viewModel.nextFragment();
                 }
-
             }
         });
     }
@@ -184,7 +194,29 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
         }
 
         Log.i("info", "//////////////////////////");
-        Toast.makeText(getContext(), "Score: " + Integer.toString(correctCount), Toast.LENGTH_SHORT).show();
-        return (correctCount == NUMBER_OF_EXERCISES);
+
+        if (correctCount == NUMBER_OF_EXERCISES) {
+            Toast.makeText(getContext(), TOAST_CORRECT_ANSWER, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else {
+            updateScore();
+            return false;
+        }
+    }
+
+    private void updateScore() {
+        Toast.makeText(getContext(), TOAST_WRONG_ANSWER, Toast.LENGTH_SHORT).show();
+
+        if (score > 0) {
+            score -= SCORE_DECREMENT;
+
+            if (score == 0) {
+                textViewScore.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                textViewScore.setText(Integer.toString((int) score));
+            }
+            else
+                textViewScore.setText(Double.toString(score));
+        }
     }
 }

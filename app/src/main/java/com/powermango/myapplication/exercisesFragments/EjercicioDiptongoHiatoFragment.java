@@ -17,11 +17,17 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 import com.powermango.myapplication.exercisesDatabase.DiptongoHiatoTable;
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+
+import static com.powermango.myapplication.Constants.SCORE_DECREMENT;
+import static com.powermango.myapplication.Constants.SCORE_INITIAL;
+import static com.powermango.myapplication.Constants.TOAST_CORRECT_ANSWER;
+import static com.powermango.myapplication.Constants.TOAST_WRONG_ANSWER;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,10 +50,13 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
     DiptongoHiatoTable entry;
 
     TextView textViewPalabra;
+    TextView textViewScore;
     RadioGroup radioGroupDiptongoHiato;
     RadioButton previousRadioButton;
     Spinner spinnerFormadoPor, spinnerTildeEn;
     Button buttonSubmit;
+
+    double score;
 
     public EjercicioDiptongoHiatoFragment() {
         // Required empty public constructor
@@ -95,9 +104,12 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
 
         textViewPalabra = getView().findViewById(R.id.textViewPalabra);
+        textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
         radioGroupDiptongoHiato = getView().findViewById(R.id.radioGroupDiptongoHiato);
         previousRadioButton = null;
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
+
+        score = SCORE_INITIAL;
 
         // Randomly selected entry
         int tempId = viewModel.generateRandomInt(database.getDiptongoHiatoDao().selectCountAll());
@@ -106,6 +118,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         //entry = new DiptongoHiatoTable("Hola", "Diptongo", "FF", "O", "A", "No lleva tilde", "No lleva tilde");
 
         textViewPalabra.setText(entry.getPalabra());
+        textViewScore.setText(Integer.toString((int) score));
 
         spinnerFormadoPor = getView().findViewById(R.id.spinnerFormadoPor);
         ArrayAdapter<CharSequence> adapterFormadoPor  = ArrayAdapter.createFromResource(getContext(), R.array.diptongo_hiato_formado_por_respuestas, android.R.layout.simple_spinner_item);
@@ -123,7 +136,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (evaluarEjercicio()) {
-                    viewModel.updateScoreBy1();
+                    viewModel.addScore(score);
                     viewModel.nextFragment();
                 }
             }
@@ -135,6 +148,7 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
             previousRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
 
         RadioButton buttonDiptongoHiato = (RadioButton) getView().findViewById(radioGroupDiptongoHiato.getCheckedRadioButtonId());
+
         if (buttonDiptongoHiato == null)
             return false;
 
@@ -142,37 +156,66 @@ public class EjercicioDiptongoHiatoFragment extends Fragment {
         String formadoPor = spinnerFormadoPor.getSelectedItem().toString();
         String tildeEn = spinnerTildeEn.getSelectedItem().toString();
 
+        previousRadioButton = buttonDiptongoHiato;
+
         if (!diptongoHiato.equals(entry.getDiptongoHiato()))
         {
             buttonDiptongoHiato.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
-            previousRadioButton = buttonDiptongoHiato;
+            updateScore();
             return false;
         }
 
+        buttonDiptongoHiato.setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
 
         switch (entry.getFormadoPor()) {
             case "FF":
-                if (!formadoPor.equals("Dos vocales fuertes"))
+                if (!formadoPor.equals("Dos vocales fuertes")) {
+                    updateScore();
                     return false;
+                }
                 break;
             case "FD":
-                if (!formadoPor.equals("Vocal fuerte y vocal débil"))
+                if (!formadoPor.equals("Vocal fuerte y vocal débil")) {
+                    updateScore();
                     return false;
+                }
                 break;
             case "DF":
-                if (!formadoPor.equals("Vocal débil y vocal fuerte"))
+                if (!formadoPor.equals("Vocal débil y vocal fuerte")) {
+                    updateScore();
                     return false;
+                }
                 break;
             case "DD":
-                if (!formadoPor.equals("Dos vocales débiles"))
+                if (!formadoPor.equals("Dos vocales débiles")) {
+                    updateScore();
                     return false;
+                }
                 break;
         }
 
-        if (!tildeEn.equals(entry.getTildeOpcionCorrecta()))
+        if (!tildeEn.equals(entry.getTildeOpcionCorrecta())) {
+            updateScore();
             return false;
+        }
 
         buttonDiptongoHiato.setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
+        Toast.makeText(getContext(), TOAST_CORRECT_ANSWER, Toast.LENGTH_SHORT).show();
         return true;
+    }
+
+    private void updateScore() {
+        Toast.makeText(getContext(), TOAST_WRONG_ANSWER, Toast.LENGTH_SHORT).show();
+
+        if (score > 0) {
+            score -= SCORE_DECREMENT;
+
+            if (score == 0) {
+                textViewScore.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                textViewScore.setText(Integer.toString((int) score));
+            }
+            else
+                textViewScore.setText(Double.toString(score));
+        }
     }
 }

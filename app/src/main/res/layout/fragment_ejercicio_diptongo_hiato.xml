@@ -20,10 +20,10 @@
             android:textSize="@dimen/prompt_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="@fraction/answer_group_horizontal_bias"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162" />
+            app:layout_constraintVertical_bias="@fraction/question_vertical_bias" />
 
         <TextView
             android:id="@+id/textViewTieneUn"
@@ -37,7 +37,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPalabra"
-            app:layout_constraintVertical_bias="0.477" />
+            app:layout_constraintVertical_bias="0.126" />
 
         <TextView
             android:id="@+id/textViewLlevaTildeEn"
@@ -62,21 +62,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.889"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPrompt"
-            app:layout_constraintVertical_bias="0.777" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.893" />
 
         <TextView
             android:id="@+id/textViewPalabra"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_text"
+            android:textColor="@color/black"
             android:textSize="@dimen/main_word_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPrompt"
-            app:layout_constraintVertical_bias="0.065" />
+            app:layout_constraintVertical_bias="0.02" />
 
         <RadioGroup
             android:id="@+id/radioGroupDiptongoHiato"
@@ -137,6 +138,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroupDiptongoHiato"
             app:layout_constraintVertical_bias="0.024" />
+
+        <TextView
+            android:id="@+id/textViewPuntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/puntos"
+            android:textSize="@dimen/clause_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/textViewPrompt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.77
+" />
+
+        <TextView
+            android:id="@+id/textViewPuntosHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_text"
+            android:textColor="@color/green_success"
+            android:textSize="@dimen/prompt_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textViewPrompt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.038"
+            app:layout_constraintStart_toEndOf="@+id/textViewPuntos"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.770
+" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,8 +43,8 @@ public class ExercisesActivity extends AppCompatActivity {
 
         // Agrega número determinado de ejercicios al arreglo
         for (int i = 0; i < EXERCISES_ARRAY_SIZE; i++) {
-            //int randomInt = viewModel.generateRandomInt(EXERCISES_AVAILABLE);
-            int randomInt = i + 1;
+            int randomInt = viewModel.generateRandomInt(EXERCISES_AVAILABLE);
+            //int randomInt = i + 1;
             Log.i("info", "Número obtenido: " + Integer.toString(randomInt));
             ExerciseType exerciseType = ExerciseType.valueOf(randomInt);
 
@@ -67,10 +67,13 @@ public class ExercisesActivity extends AppCompatActivity {
                 case ESPECIALES_MONOSILABOS:
                     exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
                     break;
-                case INTEGRADOR:
-                    exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
-                    //exercises.add(EjercicioIntegradorTildePosFragment.newInstance("", ""));
+                default:
+                    exercises.add(EjercicioDiptongoHiatoFragment.newInstance("", ""));
                     break;
+//                case INTEGRADOR:
+//                    exercises.add(EjercicioEspecialesMonosilabosFragment.newInstance("", ""));
+//                    //exercises.add(EjercicioIntegradorTildePosFragment.newInstance("", ""));
+//                    break;
             }
         }
 

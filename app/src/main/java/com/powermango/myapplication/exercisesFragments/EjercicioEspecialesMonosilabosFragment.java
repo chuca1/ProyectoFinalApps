@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,12 +15,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.powermango.myapplication.ExercisesViewModel;
 import com.powermango.myapplication.R;
 import com.powermango.myapplication.exercisesDatabase.EspecialesInterrogativosExclamativosTable;
 import com.powermango.myapplication.exercisesDatabase.EspecialesMonosilabosTable;
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
+
+import static com.powermango.myapplication.Constants.SCORE_DECREMENT;
+import static com.powermango.myapplication.Constants.SCORE_INITIAL;
+import static com.powermango.myapplication.Constants.TOAST_CORRECT_ANSWER;
+import static com.powermango.myapplication.Constants.TOAST_WRONG_ANSWER;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,8 +50,11 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
     EspecialesMonosilabosTable[] entries;
 
     TextView textViewOracion1, textViewOracion2;
+    TextView textViewScore;
     Spinner spinner1, spinner2;
     Button buttonSubmit;
+
+    double score;
 
     public EjercicioEspecialesMonosilabosFragment() {
         // Required empty public constructor
@@ -94,6 +104,7 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
 
         textViewOracion1 = getView().findViewById(R.id.textViewOracion1);
         textViewOracion2 = getView().findViewById(R.id.textViewOracion2);
+        textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
 
         entries = new EspecialesMonosilabosTable[NUMBER_OF_EXERCISES];
@@ -106,8 +117,11 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
         //entries[0] = new EspecialesMonosilabosTable("Hola mundo", "Que", "Qué", "Que");
         //entries[1] = new EspecialesMonosilabosTable("Hello world", "Cómo", "Como", "Cómo");
 
+        score = SCORE_INITIAL;
+
         textViewOracion1.setText(entries[0].getOracion());
         textViewOracion2.setText(entries[1].getOracion());
+        textViewScore.setText(Integer.toString((int) score));
 
         String[] array1 = {entries[0].getOpcion1(), entries[0].getOpcion2()};
         String[] array2 = {entries[1].getOpcion1(), entries[1].getOpcion2()};
@@ -135,18 +149,40 @@ public class EjercicioEspecialesMonosilabosFragment extends Fragment {
     }
 
     private boolean evaluarEjercicio() {
-        int score = 0;
+        int correctCount = 0;
         String respuesta1 = spinner1.getSelectedItem().toString();
         String respuesta2 = spinner2.getSelectedItem().toString();
 
         if (respuesta1.equals(entries[0].getOpcionCorrecta())) {
-            score++;
+            correctCount++;
         }
 
         if (respuesta2.equals(entries[1].getOpcionCorrecta())) {
-            score++;
+            correctCount++;
         }
 
-        return (score == NUMBER_OF_EXERCISES);
+        if (correctCount == NUMBER_OF_EXERCISES) {
+            Toast.makeText(getContext(), TOAST_CORRECT_ANSWER, Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        else {
+            updateScore();
+            return false;
+        }
+    }
+
+    private void updateScore() {
+        Toast.makeText(getContext(), TOAST_WRONG_ANSWER, Toast.LENGTH_SHORT).show();
+
+        if (score > 0) {
+            score -= SCORE_DECREMENT;
+
+            if (score == 0) {
+                textViewScore.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                textViewScore.setText(Integer.toString((int) score));
+            }
+            else
+                textViewScore.setText(Double.toString(score));
+        }
     }
 }

@@ -22,6 +22,11 @@ import com.powermango.myapplication.R;
 import com.powermango.myapplication.exercisesDatabase.ExercisesDatabase;
 import com.powermango.myapplication.exercisesDatabase.GeneralDefinicionesTable;
 
+import static com.powermango.myapplication.Constants.SCORE_DECREMENT;
+import static com.powermango.myapplication.Constants.SCORE_INITIAL;
+import static com.powermango.myapplication.Constants.TOAST_CORRECT_ANSWER;
+import static com.powermango.myapplication.Constants.TOAST_WRONG_ANSWER;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link EjercicioGeneralDefiniciones1Fragment#newInstance} factory method to
@@ -43,10 +48,12 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
     GeneralDefinicionesTable entry;
 
     TextView textViewPrompt;
+    TextView textViewScore;
     RadioGroup radioGroupRespuestas;
     Button submitButton;
 
     RadioButton previousRadioButton;
+    double score = SCORE_INITIAL;
 
     public EjercicioGeneralDefiniciones1Fragment() {
         // Required empty public constructor
@@ -94,6 +101,7 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
 
         textViewPrompt = getView().findViewById(R.id.textViewPrompt);
+        textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
         radioGroupRespuestas = getView().findViewById(R.id.radioGroupRespuestas);
         previousRadioButton = null;
         submitButton = getView().findViewById(R.id.buttonSubmit);
@@ -109,11 +117,13 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
         String promptText = getString(R.string.general_definiciones_1_prompt) + " " + definicion + ":";
         textViewPrompt.setText(promptText);
 
+        textViewScore.setText(Integer.toString((int) score));
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (evaluarEjercicio()) {
-                    viewModel.updateScoreBy1();
+                    viewModel.addScore(score);
                     viewModel.nextFragment();
                 }
             }
@@ -126,13 +136,32 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
 
         RadioButton currentRadioButton = getView().findViewById(radioGroupRespuestas.getCheckedRadioButtonId());
 
+        if (currentRadioButton == null)
+            return false;
+
         if (!entry.getConcepto().equals(currentRadioButton.getText().toString())) {
             currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
             previousRadioButton = currentRadioButton;
+            updateScore();
             return false;
         }
 
+        Toast.makeText(getContext(), TOAST_CORRECT_ANSWER, Toast.LENGTH_SHORT).show();
         currentRadioButton.setTextColor(ContextCompat.getColor(getContext(), R.color.green_success));
         return true;
+    }
+
+    private void updateScore() {
+        Toast.makeText(getContext(), TOAST_WRONG_ANSWER, Toast.LENGTH_SHORT).show();
+        if (score > 0) {
+            score -= SCORE_DECREMENT;
+
+            if (score == 0) {
+                textViewScore.setTextColor(ContextCompat.getColor(getContext(), R.color.red_danger));
+                textViewScore.setText(Integer.toString((int) score));
+            }
+            else
+                textViewScore.setText(Double.toString(score));
+        }
     }
 }
