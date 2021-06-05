@@ -16,7 +16,7 @@
             android:id="@+id/textViewOracion2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="352dp"
+            android:layout_marginBottom="250dp"
             android:text="@string/default_text"
             android:textColor="@color/black"
             android:textSize="@dimen/sentence_text_size"
@@ -55,7 +55,6 @@
             android:id="@+id/textViewOracion1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="408dp"
             android:text="@string/default_text"
             android:textColor="@color/black"
             android:textSize="@dimen/sentence_text_size"
@@ -64,7 +63,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewPrompt"
-            app:layout_constraintVertical_bias="0.201" />
+            app:layout_constraintVertical_bias="0.1" />
 
         <Button
             android:id="@+id/buttonSubmit"
