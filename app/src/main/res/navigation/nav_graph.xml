@@ -16,15 +16,15 @@
         <action
             android:id="@+id/action_mainMenu_to_menuEjercicios"
             app:destination="@id/menuEjercicios" />
+        <action
+            android:id="@+id/action_mainMenu_to_creditAndHelp"
+            app:destination="@id/creditAndHelp" />
     </fragment>
     <fragment
         android:id="@+id/leccionesFrag"
         android:name="com.powermango.myapplication.menuFragments.leccionesFrag"
         android:label="fragment_lecciones"
         tools:layout="@layout/fragment_lecciones">
-        <action
-            android:id="@+id/action_leccionesFrag_to_leccionDescripcion"
-            app:destination="@id/leccionDescripcion" />
         <action
             android:id="@+id/action_leccionesFrag_to_diptongoHiatoFragment"
             app:destination="@id/diptongoHiatoFragment" />
@@ -34,12 +34,10 @@
         <action
             android:id="@+id/action_leccionesFrag_to_casosEspecialesFragment"
             app:destination="@id/casosEspecialesFragment" />
+        <action
+            android:id="@+id/action_leccionesFrag_self"
+            app:destination="@id/leccionesFrag" />
     </fragment>
-    <fragment
-        android:id="@+id/leccionDescripcion"
-        android:name="com.powermango.myapplication.menuFragments.leccionDescripcion"
-        android:label="fragment_leccion_descripcion"
-        tools:layout="@layout/fragment_leccion_descripcion" />
     <fragment
         android:id="@+id/menuEjercicios"
         android:name="com.powermango.myapplication.menuFragments.menuEjercicios"
@@ -117,4 +115,9 @@
         android:name="com.powermango.myapplication.exercisesFragments.EjercicioIntegradorTildePosFragment"
         android:label="fragment_ejercicio_integrador_tilde_pos"
         tools:layout="@layout/fragment_ejercicio_integrador_tilde_pos" />
+    <fragment
+        android:id="@+id/creditAndHelp"
+        android:name="com.powermango.myapplication.menuFragments.creditandhelp"
+        android:label="fragment_creditandhelp"
+        tools:layout="@layout/fragment_creditandhelp" />
 </navigation>

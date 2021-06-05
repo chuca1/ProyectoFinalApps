@@ -91,36 +91,49 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="hiatoTitulo">Diptongo y Hiato</string>
-    <string name="hiatoDesc">- Vocales fuertes (F) AEO aeo\n
-- Vocales débiles (D) UI\n\n
-Diptongo:  vocales juntas, que se pronuncian en la misma sílaba.\n
-- Los diptongos pueden formarse con FD DF DD\n
-- FF nunca hace diptongo\n
-- Las vocales D con tilde se comportan como F\n
-- Hiato.  Vocales subsecuentes que se pronuncian en sílabas distintas.</string>
+    <string name="hiatoDesc">
+- Vocales fuertes (F) AEO aeo\n\n- Vocales débiles (D) UI\n\n
+Diptongo:  vocales juntas, que se pronuncian en la misma sílaba.\n\n
+    - Los diptongos pueden formarse con FD DF DD\n\n
+    - FF nunca hace diptongo\n\n
+    - Las vocales D con tilde se comportan como F\n\n\n
+Hiato.  Vocales subsecuentes que se pronuncian en sílabas distintas.</string>
     <string name="casosEspeciales_titulo">Contexto- casos especiales</string>
-    <string name="casosEspeciales_desc">Hay palabras cuya acentuación depende del contexto en el que se utilicen, ya que admiten varias formas que son correctas.  Es el caso de algunas conjugaciones verbales, los acentos diacríticos, los interrogativos, etc.
-\nEs necesario mencionar también algunas actualizaciones y casos especiales:\n
-Pronombres demostrativos: este, ese, aquel; no se escriben con tilde.\n
-Monosílabos: No se acentúan, salvo en los casos de diacríticos (mas-más, el-él, etc.)\n
-Interrogativos y exclamativos: adónde, cómo, cuál, cuán, cuándo, cuánto, dónde, qué y quién; pueden tener función de relativos y entonces no se acentúan.\n
-Mayúsculas: llevan tilde según la regla.\n
-Adverbio “solo”: se escribe sin tilde.\n
-Palabras compuestas: la regla se aplica como si fuera una palabra simple.\n
-Palabras compuestas con guion (-): se toman en cuenta como dos palabras.\n
-Adverbios terminados en –mente: conservan la acentuación del adjetivo del cual provienen.\n
-Aún: lleva tilde si puede sustituirse por todavía.</string>
+    <string name="casosEspeciales_desc">
+Hay palabras cuya acentuación depende del contexto en el que se utilicen, ya que admiten varias formas que son correctas.  Es el caso de algunas conjugaciones verbales, los acentos diacríticos, los interrogativos, etc.
+\n\nEs necesario mencionar también algunas actualizaciones y casos especiales:\n\n
+    - <b>Pronombres demostrativos:</b> este, ese, aquel; no se escriben con tilde.\n\n
+    - <b>Monosílabos:</b> No se acentúan, salvo en los casos de diacríticos (mas-más, el-él, etc.)\n\n
+    - <b>Interrogativos y exclamativos:</b> adónde, cómo, cuál, cuán, cuándo, cuánto, dónde, qué y quién; pueden tener función de relativos y entonces no se acentúan.\n\n
+    - <b>Mayúsculas:</b> llevan tilde según la regla.\n\n
+    - <b>Adverbio “solo”:</b> se escribe sin tilde.\n\n
+    - <b>Palabras compuestas:</b> la regla se aplica como si fuera una palabra simple.\n\n
+    - <b>Palabras compuestas con guion (-):</b> se toman en cuenta como dos palabras.\n\n
+    - <b>Adverbios terminados en –mente:</b> conservan la acentuación del adjetivo del cual provienen.\n\n
+    - <b>Aún:</b> lleva tilde si puede sustituirse por todavía.</string>
 
     <string name="reglageneral_titulo">
         Regla General
     </string>
-    <string name="reglageneral_desc"> La regla general es la forma común de acentuar palabras y esta se forma tomando en cuenta las sílaba tónica de la palabra.\n
-    Te puedes basar por el tipo de palabra que son por ejemplo:\n
-        -Sobreesdrújulas: Llevan tilde siempre\n
-        -Esdrújulas. Llevan siempre tilde\n
-        -Graves: Llevan tilde cuando no terminan en N,S o vocal\n
-        -Agudas: Llevan tilde cuando terminan en N, S o vocal\n
+    <string name="reglageneral_desc"> La regla general es la forma común de acentuar palabras y esta se forma tomando en cuenta las sílaba tónica de la palabra.\n\nTe puedes basar por el tipo de palabra que son por ejemplo:\n\n - Sobreesdrújulas: Llevan tilde siempre\n\n - Esdrújulas. Llevan siempre tilde\n\n - Graves: Llevan tilde cuando no terminan en N,S o vocal\n\n - Agudas: Llevan tilde cuando terminan en N, S o vocal\n
     </string>
 
     <string name="default_text">Cargando...</string>
+    <string name="con_o_sin_tilde_title">¿Con o sin Tilde?</string>
+    <string name="creditos">Aplicación desarrollada por:\n\n
+    -Luis Fernando Lomelín Ibarra\n
+    -David Alejandro Martínez Tristán\n
+    -Ulrik Alberto Nuño Tapia\n
+    -Diego Garza Macías\n\n
+En conjunto con las maestras del Centro de Escritura:\n\n
+    -María Robertha Leal\n
+    -Yazmín Carrizales\n
+    -Martha Pérez\n
+    </string>
+    <string name="help_main_menu">
+        ¡Hola! Esta es la aplicación de ¿Con o sin Tilde?\n\n
+Esta aplicación esta diseñada para que aprendas y practiques las reglas de acentuación en el español. Para entender las reglas presiona el botón de Lecciones para revisar y repasar las reglas de acentuación.\n\
+Para poner en practica estos conocimientos, desliza el botón de lecciones para la izquierda para encontrar el botón de práctica. En esta sección podrás poner en práctica las lecciones aprendidas de las reglas de acentuación.\n\n
+
+    </string>
 </resources>

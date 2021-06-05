@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menuFragments.leccionDescripcion">
+    tools:context=".menuFragments.creditandhelp">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -11,20 +11,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:text="@string/lecciones_btn"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
 
         <TextView
-            android:id="@+id/tvLecDescTitle"
+            android:id="@+id/tvTitleIbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/titulo_dummy"
+            android:text="@string/con_o_sin_tilde_title"
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#0091fa"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -35,17 +37,17 @@
             android:fillViewport="true">
 
             <TextView
-                android:id="@+id/txtquestion"
+                android:id="@+id/tvTxTibutton"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:lines="20"
+
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:text="@string/dummy_text"
-                android:textSize="15sp" />
+                android:textSize="20dp" />
 
         </ScrollView>
     </LinearLayout>
-
 
 </FrameLayout>

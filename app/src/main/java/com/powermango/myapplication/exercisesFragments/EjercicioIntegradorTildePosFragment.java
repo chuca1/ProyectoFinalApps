@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,9 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
     Spinner spinnerSilaba;
     Button buttonSubmit;
 
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+
     public EjercicioIntegradorTildePosFragment() {
         // Required empty public constructor
     }
@@ -113,6 +117,11 @@ public class EjercicioIntegradorTildePosFragment extends Fragment {
         //int tempId = viewModel.generateRandomInt(database.getIntegradorDao().selectCountAll());
         //entry = database.getIntegradorDao().selectEntryById(tempId);
         entry = new IntegradorTable("Hola", 0, 0);
+
+        textViewLlevaTilde.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        textViewPalabra.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        textViewSilabaQueLoLleva.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        buttonSubmit.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
         textViewPalabra.setText(entry.getPalabra());
 

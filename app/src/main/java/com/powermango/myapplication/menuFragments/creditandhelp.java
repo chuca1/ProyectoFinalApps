@@ -1,4 +1,4 @@
-package com.powermango.myapplication.lessonsFragments;
+package com.powermango.myapplication.menuFragments;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -16,9 +16,11 @@ import android.widget.TextView;
 import com.powermango.myapplication.R;
 
 
-public class CasosEspecialesFragment extends Fragment {
-    TextView title;
-    TextView desc;
+public class creditandhelp extends Fragment {
+
+    private TextView text;
+    private TextView title;
+    private  String TAG_BUND = "MAINIB";
     String TEXT_FONT = "fonts/Montserrat-SemiBold.ttf";
     String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
     Context context;
@@ -28,13 +30,13 @@ public class CasosEspecialesFragment extends Fragment {
         super.onAttach(context);
         this.context = context;
     }
-    public CasosEspecialesFragment() {
+    public creditandhelp() {
         // Required empty public constructor
     }
 
 
-    public static CasosEspecialesFragment newInstance(String param1, String param2) {
-        CasosEspecialesFragment fragment = new CasosEspecialesFragment();
+    public static creditandhelp newInstance(String param1, String param2) {
+        creditandhelp fragment = new creditandhelp();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
@@ -52,20 +54,32 @@ public class CasosEspecialesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        title = view.findViewById(R.id.tvLecDescTitle);
-        desc = view.findViewById(R.id.txtDescrip);
+        title = view.findViewById(R.id.tvTitleIbutton);
         title.setTypeface(Typeface.createFromAsset(context.getAssets(),TITLE_FONT));
-        desc.setTypeface(Typeface.createFromAsset(context.getAssets(),TEXT_FONT));
+        if(getArguments() != null){
 
 
-        desc.setText(getString(R.string.casosEspeciales_desc));
-        title.setText(getString(R.string.casosEspeciales_titulo));
+            switch(getArguments().getInt(TAG_BUND)){
+                case 1:{
+                    text = view.findViewById(R.id.tvTxTibutton);
+                    text.setText(getString(R.string.creditos).toString());
+                    text.setTypeface(Typeface.createFromAsset(context.getAssets(),TEXT_FONT));
+                    break;
+                }
+                case 2:{
+                    text = view.findViewById(R.id.tvTxTibutton);
+                    text.setText(getString(R.string.help_main_menu).toString());
+                    text.setTypeface(Typeface.createFromAsset(context.getAssets(),TEXT_FONT));
+                    break;
+                }
+            }
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_casos_especiales, container, false);
+        return inflater.inflate(R.layout.fragment_creditandhelp, container, false);
     }
 }

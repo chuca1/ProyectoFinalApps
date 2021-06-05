@@ -23,19 +23,21 @@
 
         <Button
             android:id="@+id/bEjerciciosNormal"
-            android:layout_width="240dp"
+            android:layout_width="250dp"
             android:gravity="center"
             android:layout_marginVertical="25dp"
             android:layout_height="wrap_content"
-            android:text="@string/modo_cl_sico_btn" />
+            android:text="@string/modo_cl_sico_btn"
+            android:drawableLeft="@drawable/ic_classic"/>
 
         <Button
             android:id="@+id/bContraTiempo"
-            android:layout_width="240dp"
+            android:layout_width="250dp"
             android:gravity="center"
             android:layout_marginVertical="25dp"
             android:layout_height="wrap_content"
-            android:text="@string/modo_contratiempo_btn" />
+            android:text="@string/modo_contratiempo_btn"
+            android:drawableLeft="@drawable/ic_clock"/>
     </LinearLayout>
 
 </FrameLayout>

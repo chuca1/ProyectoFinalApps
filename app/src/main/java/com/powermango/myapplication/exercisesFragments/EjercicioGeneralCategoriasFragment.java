@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,9 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
     Spinner spinner1, spinner2, spinner3, spinner4;
     Button submitButton;
 
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+
     GeneralCategoriasTable[] entries;
     String[] respuestas;
     double score = SCORE_INITIAL;
@@ -118,9 +122,13 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
 
         // TextView initialization
         palabras[0] = (TextView) getView().findViewById(R.id.palabra1);
+        palabras[0].setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         palabras[1] = (TextView) getView().findViewById(R.id.palabra2);
+        palabras[1].setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         palabras[2] = (TextView) getView().findViewById(R.id.palabra3);
+        palabras[2].setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         palabras[3] = (TextView) getView().findViewById(R.id.palabra4);
+        palabras[3].setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
         // Score holder
         textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
@@ -141,6 +149,8 @@ public class EjercicioGeneralCategoriasFragment extends Fragment {
 
         // Button initialization
         submitButton = getView().findViewById(R.id.buttonSubmit);
+
+        submitButton.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
         // Get randomly selected entries from correspondent table
         for (int i = 0, size = database.getGeneralCategoriasDao().selectCountAll(); i < NUMBER_OF_EXERCISES; i++) {

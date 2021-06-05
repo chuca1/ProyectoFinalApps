@@ -1,5 +1,6 @@
 package com.powermango.myapplication.exercisesFragments;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,8 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
     Button buttonSubmit;
 
     double score;
+    String TITLE_FONT = "fonts/Montserrat-Medium.ttf";
+    //.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
     public EjercicioEspecialesInteExclaFragment() {
         // Required empty public constructor
@@ -105,7 +108,9 @@ public class EjercicioEspecialesInteExclaFragment extends Fragment {
         textViewOracion2 = getView().findViewById(R.id.textViewOracion2);
         textViewScore = getView().findViewById(R.id.textViewPuntosHolder);
         buttonSubmit = getView().findViewById(R.id.buttonSubmit);
-
+        textViewOracion1.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        textViewOracion2.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
+        buttonSubmit.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         entries = new EspecialesInterrogativosExclamativosTable[NUMBER_OF_EXERCISES];
 
         int tempId = viewModel.generateRandomInt(database.getEspecialesInterrogativosExclamativosDao().selectCountAll());
