@@ -28,7 +28,8 @@ public class menuEjercicios extends Fragment {
     NavController navController = null;
 
     Button modoClas;
-    Button modoContraT;
+    TextView explicacion;
+    //Button modoContraT;
     String BUTTON_FONT = "fonts/Montserrat-Regular.ttf";
     String TITLE_FONT = "fonts/Montserrat-Light.ttf";
     Context context;
@@ -51,11 +52,14 @@ public class menuEjercicios extends Fragment {
         navController = Navigation.findNavController(view);
 
         modoClas = view.findViewById(R.id.bEjerciciosNormal);
-        modoContraT = view.findViewById(R.id.bContraTiempo);
+        //modoContraT = view.findViewById(R.id.bContraTiempo);
         TextView titulo = view.findViewById(R.id.tvTituloMenuEjercios);
         titulo.setTypeface(Typeface.createFromAsset(context.getAssets(),TITLE_FONT));
         modoClas.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
-        modoContraT.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
+        explicacion = view.findViewById(R.id.tvExplicaciónEjercios);
+        explicacion.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
+        explicacion.setText(getString(R.string.explicacionEjercios));
+        //modoContraT.setTypeface(Typeface.createFromAsset(context.getAssets(), BUTTON_FONT));
         modoClas.setOnClickListener(viewl -> {
             startExercises();
         });
