@@ -21,6 +21,15 @@
         android:gravity="center"
         android:paddingVertical="10dp">
 
+        <TextView
+            android:id="@+id/tvExplicaciónEjercios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="18dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="25dp"/>
+
         <Button
             android:id="@+id/bEjerciciosNormal"
             android:layout_width="250dp"
@@ -30,14 +39,7 @@
             android:text="@string/modo_cl_sico_btn"
             android:drawableLeft="@drawable/ic_classic"/>
 
-        <Button
-            android:id="@+id/bContraTiempo"
-            android:layout_width="250dp"
-            android:gravity="center"
-            android:layout_marginVertical="25dp"
-            android:layout_height="wrap_content"
-            android:text="@string/modo_contratiempo_btn"
-            android:drawableLeft="@drawable/ic_clock"/>
+
     </LinearLayout>
 
 </FrameLayout>

@@ -10,7 +10,7 @@
     <string name="titulo_dummy">titulo</string>
     <string name="practica_title_tv">Practica</string>
     <string name="modo_contratiempo_btn">Modo Contratiempo</string>
-    <string name="modo_cl_sico_btn">Modo Clásico</string>
+    <string name="modo_cl_sico_btn">Empezar Ejercicios</string>
 
     <string name="button_regla_general">Regla general</string>
     <string name="button_diptongo_hiato">Diptongo y hiato</string>
@@ -134,6 +134,11 @@ En conjunto con las maestras del Centro de Escritura:\n\n
         ¡Hola! Esta es la aplicación de ¿Con o sin Tilde?\n\n
 Esta aplicación esta diseñada para que aprendas y practiques las reglas de acentuación en el español. Para entender las reglas presiona el botón de Lecciones para revisar y repasar las reglas de acentuación.\n\
 Para poner en practica estos conocimientos, desliza el botón de lecciones para la izquierda para encontrar el botón de práctica. En esta sección podrás poner en práctica las lecciones aprendidas de las reglas de acentuación.\n\n
+
+    </string>
+    <string name="explicacionEjercios">
+        En este espacio puedes poner a prueba tu conocimiento de las reglas de la acentuación. Se van a generar 10 ejercicios aleatorios que pondrán en practica los conceptos de las reglas de acentuación vistas en esta aplicación. Cada ejercicio tiene un valor de 1 punto. Por cada intento equivocado que  tengas se te va a bajar 0.25 puntos. ¡Tomate tu tiempo y practica!
+\n\nPara empezar los ejercicios presiona el botón de comenzar.
 
     </string>
 </resources>
