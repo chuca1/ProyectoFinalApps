@@ -10,6 +10,7 @@ import androidx.room.RoomDatabase;
 @Database(entities = {
         GeneralCategoriasTable.class,
         GeneralDefinicionesTable.class,
+        GeneralDefiniciones1Table.class,
         DiptongoHiatoTable.class,
         EspecialesInterrogativosExclamativosTable.class,
         EspecialesMonosilabosTable.class,
@@ -19,6 +20,7 @@ public abstract class ExercisesDatabase extends RoomDatabase {
     // Definir Dao
     public abstract GeneralCategoriasDao getGeneralCategoriasDao();
     public abstract GeneralDefinicionesDao getGeneralDefinicionesDao();
+    public abstract GeneralDefiniciones1Dao getGeneralDefiniciones1Dao();
     public abstract DiptongoHiatoDao getDiptongoHiatoDao();
     public abstract EspecialesInterrogativosExclamativosDao getEspecialesInterrogativosExclamativosDao();
     public abstract EspecialesMonosilabosDao getEspecialesMonosilabosDao();

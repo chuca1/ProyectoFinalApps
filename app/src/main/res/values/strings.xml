@@ -19,11 +19,10 @@
     <string name="button_submit">Enviar</string>
     <string name="button_finish">Finalizar</string>
 
+    <string name="puntos">Puntos:</string>
+    <string name="default_text">Cargando...</string>
+
     <string name="general_categorias_pregunta">Selecciona la categoría a la que pertenece cada palabra</string>
-    <string name="general_categorias_palabra_1">Árbol</string>
-    <string name="general_categorias_palabra_2">Computadora</string>
-    <string name="general_categorias_palabra_3">Ilogico</string>
-    <string name="general_categorias_palabra_4">Acción</string>
     <string-array name="general_categorias_respuestas">
         <item>Aguda</item>
         <item>Grave</item>
@@ -31,19 +30,11 @@
         <item>Sobreesdrújula</item>
     </string-array>
 
-    <string name="diptongo">Diptongos</string>
-    <string name="hiato">Hiatos</string>
-    <string name="empezar">Empezar</string>
-    <string name="timer">60</string>
-    <string name="cero">0</string>
-    <string name="puntos">Puntos:</string>
-
-
-    <string name="general_definiciones_1_prompt">Son palabras que llevan tilde</string>
-    <string name="general_definiciones_1_pregunta">Son palabras que llevan tilde cuando no terminan en N, S o vocal:</string>
+    <string name="general_definiciones_1_prompt">Son palabras cuya sílaba tónica es la</string>
     <string name="general_definiciones_1_agudas">Agudas</string>
     <string name="general_definiciones_1_graves">Graves</string>
-    <string name="general_definiciones_1_esdrújulas_sobreesdrujulas">Esdrújulas y sobreesdrújulas</string>
+    <string name="general_definiciones_1_esdrujulas">Esdrújulas</string>
+    <string name="general_definiciones_1_sobreesdrujulas">Sobreesdrújulas</string>
 
     <string name="general_definiciones_2_prompt_1">Las palabras</string>
     <string name="general_definiciones_2_prompt_2">llevan tilde:</string>
@@ -118,7 +109,6 @@ Hay palabras cuya acentuación depende del contexto en el que se utilicen, ya qu
     <string name="reglageneral_desc"> La regla general es la forma común de acentuar palabras y esta se forma tomando en cuenta las sílaba tónica de la palabra.\n\nTe puedes basar por el tipo de palabra que son por ejemplo:\n\n - Sobreesdrújulas: Llevan tilde siempre\n\n - Esdrújulas. Llevan siempre tilde\n\n - Graves: Llevan tilde cuando no terminan en N,S o vocal\n\n - Agudas: Llevan tilde cuando terminan en N, S o vocal\n
     </string>
 
-    <string name="default_text">Cargando...</string>
     <string name="con_o_sin_tilde_title">¿Con o sin Tilde?</string>
     <string name="creditos">Aplicación desarrollada por:\n\n
     -Luis Fernando Lomelín Ibarra\n

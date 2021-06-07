@@ -85,7 +85,11 @@ public class ScoreFragment extends Fragment {
         buttonFinish = getView().findViewById(R.id.buttonFinish);
 
         viewModel = new ViewModelProvider(getActivity()).get(ExercisesViewModel.class);
-        textViewScore.setText(Double.toString(viewModel.getScore()));
+
+        if (viewModel.getScore() - (int) viewModel.getScore() == 0)
+            textViewScore.setText(Integer.toString((int) viewModel.getScore()));
+        else
+            textViewScore.setText(Double.toString(viewModel.getScore()));
 
         buttonFinish.setOnClickListener(new View.OnClickListener() {
             @Override

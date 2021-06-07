@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,15 +115,16 @@ public class EjercicioGeneralDefiniciones1Fragment extends Fragment {
         textViewPrompt.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
         submitButton.setTypeface(Typeface.createFromAsset(getContext().getAssets(),TITLE_FONT));
 
-        int tempId = viewModel.generateRandomInt(database.getGeneralDefinicionesDao().selectCountAll());
-        entry = database.getGeneralDefinicionesDao().selectEntryById(tempId);
+        int tempId = viewModel.generateRandomInt(database.getGeneralDefiniciones1Dao().selectCountAll());
+        entry = database.getGeneralDefiniciones1Dao().selectEntryById(tempId);
 
         // Debug
         //entry = new GeneralDefinicionesTable("Agudas", "Cuando terminan en N, S o vocal");
 
         // Set prompt text
-        String definicion = entry.getDefinicion().substring(0, 1).toLowerCase() + entry.getDefinicion().substring(1);
-        String promptText = getString(R.string.general_definiciones_1_prompt) + " " + definicion + ":";
+        Log.i("info", "Concepto: " + entry.getConcepto());
+        Log.i("info", "Definicion: " + entry.getDefinicion());
+        String promptText = getString(R.string.general_definiciones_1_prompt) + " " + entry.getDefinicion() + ":";
         textViewPrompt.setText(promptText);
 
         textViewScore.setText(Integer.toString((int) score));

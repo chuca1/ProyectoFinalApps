@@ -16,7 +16,7 @@
             android:id="@+id/textViewPrompt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/general_definiciones_1_pregunta"
+            android:text="@string/default_text"
             android:textSize="@dimen/prompt_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,10 +51,17 @@
                 android:textSize="@dimen/answer_text_size" />
 
             <RadioButton
-                android:id="@+id/radioButtonEsdSobre"
+                android:id="@+id/radioButtonEsdrujulas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/general_definiciones_1_esdrújulas_sobreesdrujulas"
+                android:text="@string/general_definiciones_1_esdrujulas"
+                android:textSize="@dimen/answer_text_size" />
+
+            <RadioButton
+                android:id="@+id/radioButtonSobreesdrujulas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/general_definiciones_1_sobreesdrujulas"
                 android:textSize="@dimen/answer_text_size" />
 
         </RadioGroup>
